@@ -17,13 +17,6 @@
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/rafaelcarvalhoj">
-                <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/105162671?v=4" width="150px;"/>
-                <h5 class="text-center">Rafael Carvalho</h5>
-            </a>
-        </td>
-        </td>
-        <td align="center">
             <a href="https://github.com/Kauanviictor">
                 <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/101677333?v=4" width="150px;"/>
                 <h5 class="text-center">Kauan Victor</h5>
