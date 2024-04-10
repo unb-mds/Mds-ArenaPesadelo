@@ -1,9 +1,9 @@
 # 2024-1-Squad-06
 
-##Site-AtléticaPesadelo
+## Site-AtléticaPesadelo
 
 <div align="center">
-    <img src="../Mds-SitePesadelo/docs/assets/IMAGEM_PESADELO.png" style="width:30vw"/>
+    <img src="../../Documentos/Mds-SitePesadelo/docs/assets/IMAGEM_PESA.png" style="width:30vw"/>
 </div>
 
 ## Sobre o Site da Atlética Pesadelo
