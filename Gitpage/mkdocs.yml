@@ -1,0 +1,8 @@
+site_name: Site Atlética Pesadelo
+site_url: https://unb-mds.github.io/Mds-SitePesadelo/
+
+theme: material
+
+nav:
+  - Home: index.md
+  - Sobre o Jogo: SobreOJogo.md 
