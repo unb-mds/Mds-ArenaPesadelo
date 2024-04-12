@@ -1,14 +1,14 @@
 # 2024-1-Squad-06
 
-## Site-AtléticaPesadelo
+## Site-AtléticaPesadelo.
 
 <div align="center">
-    <img src="../../Documentos/Mds-SitePesadelo/docs/assets/IMAGEM_PESA.png" style="width:30vw"/>
+    <img src="../Mds-SitePesadelo/docs/assets/IMAGEM_PESA.png" style="width:30vw"/>
 </div>
 
 ## Sobre o Site da Atlética Pesadelo
 
-- **Descrição:** A Atlética Pesadelo é uma organização estudantil da Universidade de Brasília (UnB) especificamente do campus no Gama, que foi criada em 2017 com o intuito de melhorar a saúde mental dos alunos. Hoje a Pesadelo representa como atética todas as engenharias da FGA e faz parte de  três LIGAS, sendo elas: A Maquinada, LaUnB e do LIG
+- **Descrição:** A Atlética Pesadelo é uma organização estudantil da Universidade de Brasília (UnB) especificamente do campus no Gama. Criada em 2017 com o intuito de melhorar a saúde mental dos alunos e hoje a Pesadelo representa como atética todas as engenharias da FGA e faz parte de  três LIGAS, sendo elas: A Maquinada, LaUnB e do LIG
 
 - **Problemas atuais:** Atualmente a Atlética Pesadelo tem um grande problema na criação e na organização de campeonatos, tanto campeonatos online como os E-sports quanto os campeonatos presentes como o Esportes, gerando grande dificuldade na organização, informações, chaveamento e praticidade das competições. Outros pontos, como as informações sobre os processos seletivos de equipes e informações atualizadas são um problema da Atlética.
  
@@ -17,15 +17,17 @@
 
 - **Habilidades necessárias/preferenciais:** Conhecimento em HTML; Conhecimento em CSS; Github; Conhecimento em Javascript, Node.js e react.js.
 
-- **Mentores:** Professora Carla Rocha - Matéria de MDS.
+- **Mentores:** Professora Carla Rocha - Métodos de Desenvolvimento de Software.
 
 - **Tamanho do projeto:**  Médio/Grande.
 
-- **Dificuldade:** Média.
+- **Dificuldade:** Média. 
+
+O projeto é software livre e está sob a licença [MIT](./LICENSE).
 
 
 
-## Desenvolvedores
+## 👥 Equipe
 
 <center>
 <table style="margin-left: auto; margin-right: auto;">
