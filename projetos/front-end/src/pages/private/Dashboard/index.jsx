@@ -1,13 +1,9 @@
-import useAuth from "../../../hooks/useAuth"
+import { Header } from "../../../components/Header";
 
 export const Dashboard = () => {
-  const { logout } = useAuth();
-
   return (
     <div>
-      <h1>Dashboard</h1>
-
-      <button type="button" onClick={logout}>Sair</button>
+      <Header />
     </div>
   )
 }
