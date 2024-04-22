@@ -1,13 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://unb-mds/SiteAtléticaPesadelo/</loc>
-         <lastmod>2024-04-08</lastmod>
+         <loc>https://unb-mds.github.io/Mds-ArenaPesadelo/</loc>
+         <lastmod>2024-04-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://unb-mds/SiteAtléticaPesadelo/SobreOJogo/</loc>
-         <lastmod>2024-04-08</lastmod>
+         <loc>https://unb-mds.github.io/Mds-ArenaPesadelo/backlog/</loc>
+         <lastmod>2024-04-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://unb-mds.github.io/Mds-ArenaPesadelo/patterns/</loc>
+         <lastmod>2024-04-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://unb-mds.github.io/Mds-ArenaPesadelo/product/</loc>
+         <lastmod>2024-04-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://unb-mds.github.io/Mds-ArenaPesadelo/project/</loc>
+         <lastmod>2024-04-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://unb-mds.github.io/Mds-ArenaPesadelo/references/</loc>
+         <lastmod>2024-04-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://unb-mds.github.io/Mds-ArenaPesadelo/release1/</loc>
+         <lastmod>2024-04-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://unb-mds.github.io/Mds-ArenaPesadelo/requisitos/</loc>
+         <lastmod>2024-04-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://unb-mds.github.io/Mds-ArenaPesadelo/sprint1/</loc>
+         <lastmod>2024-04-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://unb-mds.github.io/Mds-ArenaPesadelo/sprint2/</loc>
+         <lastmod>2024-04-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://unb-mds.github.io/Mds-ArenaPesadelo/sprint3/</loc>
+         <lastmod>2024-04-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://unb-mds.github.io/Mds-ArenaPesadelo/sprint4/</loc>
+         <lastmod>2024-04-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://unb-mds.github.io/Mds-ArenaPesadelo/sprints/</loc>
+         <lastmod>2024-04-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
