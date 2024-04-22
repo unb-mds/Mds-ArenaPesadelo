@@ -1,8 +1,61 @@
-site_name: Site Atlética Pesadelo
-site_url: https://unb-mds.github.io/Mds-SitePesadelo/
+site_name: Arena Pesadelo
+nav: 
+ - Home: 'index.md'
+ - Requisitos: 'requisitos.md'
 
-theme: material
+ - Visão de produto e projeto: 
+    - Visão de produto: 'product.md'
+    - Visão de projeto: 'project.md'
+ - Backlog: 'backlog.md'
+ - Padrões de desenvolvimento: 'patterns.md'
+ - Artes e referências: 'references.md'
+ - Roadmap e Sprints: 
+    - Roadmap e Sprints: 'sprints.md'
+    - Sprint (01/04 - 07/04): 'sprint1.md'
+    - Sprint (08/04 - 14/04): 'sprint2.md'
+    - Sprint (15/04 - 21/04): 'sprint3.md'
+    - Sprint (02/04 - 25/04): 'sprint4.md'
 
-nav:
-  - Home: index.md
-  - Sobre o Jogo: SobreOJogo.md 
+ - Releases:
+    - Release 1(26/04): 'release1.md'
+
+theme:
+  name: material
+  language: pt
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.tooltips
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
+extra_css:
+  - stylesheets/extra.css
+extra:
+  generator: false
