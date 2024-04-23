@@ -3,10 +3,34 @@ import { PublicRoute } from './PublicRoutes';
 import { PrivateRoute } from './PrivateRoutes';
 import { Dashboard } from '../pages/private/Dashboard';
 import { Login } from '../pages/public/Login';
+import { User} from '../pages/public/User';
+import { Inicial } from '../pages/public/Inicial';
 
 export const Routes = () => {
   return (
     <RoutesDOM>
+<Route
+        element={
+          <PublicRoute>
+            <Outlet />
+          </PublicRoute>
+        }
+      >
+        <Route path="/" element={<Inicial />} />
+        <Route path="/inicial" element={<Inicial />} />
+      </Route>  
+
+      <Route
+        element={
+          <PublicRoute>
+            <Outlet />
+          </PublicRoute>
+        }
+      >
+        <Route path="/" element={<User />} />
+        <Route path="/user" element={<User />} />
+      </Route>  
+
       <Route
         element={
           <PublicRoute>
