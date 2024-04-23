@@ -1,18 +1,18 @@
-# 2024-1-Squad-06
+# 2024-1 Squad-06
 
-## Site-AtléticaPesadelo
+## Arena Pesadelo
 
 <div align="center">
-    <img src="../Mds-SitePesadelo/docs/assets/IMAGEM_PESADELO.png" style="width:20vw"/>
+    <img src="docs/assets/IMAGEM_PESADELO.png" style="width:20vw"/>
 </div>
 
-## Sobre o Site da Atlética Pesadelo
+## Sobre o Projeto:
 
-- **Descrição:** A Atlética Pesadelo é uma organização estudantil da Universidade de Brasília (UnB) especificamente do campus no Gama, que foi criada em 2017 com o intuito de melhorar a saúde mental dos alunos. Hoje a Pesadelo representa como atética todas as engenharias da FGA e faz parte de  três LIGAS, sendo elas: A Maquinada, LaUnB e do LIG
+- **Descrição:** A Atlética Pesadelo é uma organização estudantil da Universidade de Brasília (UnB) especificamente do campus no Gama, que foi criada em 2017 com o intuito de melhorar a saúde mental dos alunos. Hoje a Pesadelo representa como atética todas as engenharias da FGA e faz parte de  três LIGAS, sendo elas: A Maquinada, LaUnB e do LIG.
 
 - **Problemas atuais:** Atualmente a Atlética Pesadelo tem um grande problema na criação e na organização de campeonatos, tanto campeonatos online como os E-sports quanto os campeonatos presentes como o Esportes, gerando grande dificuldade na organização, informações, chaveamento e praticidade das competições. Outros pontos, como as informações sobre os processos seletivos de equipes e informações atualizadas são um problema da Atlética.
  
-- **Resultados esperados:** Um site que o estudante possa ter acesso a todas as informações atualizadas sobre a Atlética, principalmente sobre os campeonatos ativos e eventos organizados pelo mesmo. Para o acesso de gestores da atlética, a criação de novos campeonatos, atualização de informações, gerenciamento das equipes etc.
+- **Resultados esperados:** Um site em que o estudante possa ter acesso as informações atualizadas sobre os campeonatos ativos e eventos organizados pela atlética. Com acesso para gestores e atletas, facilitando a criação de novos campeonatos, atualização de informações, gerenciamento das equipes e visualização do ranqueamento dos campeonatos etc.
 
 
 - **Habilidades necessárias/preferenciais:** Conhecimento em HTML; Conhecimento em CSS; Github; Conhecimento em Javascript, Node.js e react.js.
@@ -53,6 +53,12 @@
                 <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/98031566?v=4" width="100px;"/>
                 <h5 class="text-center">Miguel Arthur</h5>
             </a>
+        </td>
+          <td align="center">
+            <a href="https://github.com/PauloFilho2">
+                <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/131913211?v=4" width="100px;"/>
+                <h5 class="text-center">Paulo Filho</h5>
+            </a>    
         </td>
           <td align="center">
             <a href="https://github.com/PedroALuciano">
