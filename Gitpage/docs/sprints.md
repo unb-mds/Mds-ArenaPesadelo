@@ -11,13 +11,13 @@
 
 ## ROADMAP - ARENA PESADELO
 
-<img src="../Imagens_gitpage/ROADMAP - ARENA PESADELO.pdf" width="800">
+<img src="" width="800">
 
 ## Quadro de Sprints
 <p style="text-indent: 50px;text-align: justify;"> O Quadro de Sprints contém informações de cada sprint de cada lançamento, onde cada sprint representa um painel neste quadro, e os cartões dentro do painel são as atividades que serão realizadas. </p>
 
-<p style="text-indent: 50px;text-align: justify;"> Cada cartão contém informações sobre o conteúdo da atividade, os membros que estão trabalhando nela, a data máxima para concluí-la e rótulos que se referem à dificuldade da atividade(fácil, média e difícil) e área do projeto (como estudo, documentação ou uma tarefa do site). </p>
+<p style="text-indent: 50px;text-align: justify;"> Cada cartão contém informações sobre o conteúdo da atividade, os membros que estão trabalhando nela, a data máxima para concluí-la e rótulos que se referem à dificuldade da atividade(fácil, média e difícil) e área do projeto (como estudo, documentação ou uma tarefa do site). </p> 
 
 <p style="text-indent: 50px;text-align: justify;"> O Quadro de Sprints pode ser visualizado a seguir: </p>
 
-<iframe src="https://trello.com/b/ZIMxnopT" frameBorder="0" width="800" height="500"></iframe>
+<iframe src="https://trello.com/b/ZIMxnopT" frameBorder="0" width="800" height="500"></iframe>q
