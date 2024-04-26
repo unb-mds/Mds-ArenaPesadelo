@@ -6,6 +6,7 @@
 |--|--|--|--|
 |04/04/2024|0.1|Adicionando roadmap|Miguel Arthur|
 |07/04/2024|0.2|Adicionando sprints|Miguel Arthur|
+|25/04/2024|0.3|Adicionando iFrame trello|Adrielly Rodrigues|
 
 <p style="text-indent: 50px;text-align: justify;">Essa seção está dividida em sprints, cada uma com duração de uma semana, que detalham o trabalho realizado por nós, além dos tutoriais e materiais que orientaram nosso estudo.</p>
 
@@ -20,4 +21,4 @@
 
 <p style="text-indent: 50px;text-align: justify;"> O Quadro de Sprints pode ser visualizado a seguir: </p>
 
-<iframe src="https://trello.com/b/ZIMxnopT" frameBorder="0" width="800" height="500"></iframe>q
+<iframe src="https://trello.com/b/ZIMxnopT.html" frameBorder="0" width="800" height="500"></iframe>

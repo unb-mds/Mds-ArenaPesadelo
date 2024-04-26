@@ -53,6 +53,12 @@ O projeto é software livre e está sob a licença [MIT](./LICENSE).
                 <h5 class="text-center">Miguel Arthur</h5>
             </a>
         </td>
+            <td align="center">
+            <a href="https://github.com/PauloFilho2">
+                <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/131913211?v=4" width="100px;"/>
+                <h5 class="text-center">Paulo Filho</h5>
+            </a>    
+        </td>
           <td align="center">
             <a href="https://github.com/PedroALuciano">
                 <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/108702746?v=4" width="100px;"/>
@@ -60,11 +66,6 @@ O projeto é software livre e está sob a licença [MIT](./LICENSE).
             </a>
             </a>
         </td>
-          <td align="center">
-            <a href="https://github.com/PauloFilho2">
-                <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/131913211?v=4" width="100px;"/>
-                <h5 class="text-center">Paulo Filho</h5>
-            </a>    
-        </td>
+          
 </table>
 </center>

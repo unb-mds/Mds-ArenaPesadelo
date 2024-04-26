@@ -6,6 +6,7 @@
 |--|--|--|--|
 |07/04/2024|0.1|Adicionando sprint|Miguel Arthur|
 |16/04/2024|0.2|Adicionando tutorial|Miguel Arthur|
+|25/04/2024|0.3|Adicionando Youtube|Adrielly Rodrigues|
 
 ## Tarefas
 
@@ -19,5 +20,5 @@
 <p style="text-indent: 50px;text-align: justify;"> Para nos familiarizarmos com o Github e o JavaScript, iniciamos com alguns tutoriais </p>
 
 <div align="center">
-<iframe width="560" height="315" src="https://youtu.be/394mc6PV8t8?si=v_gqKKmIvijeleTt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/394mc6PV8t8?si=E67PD1YqS5Imlct8&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
