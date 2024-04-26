@@ -16,6 +16,7 @@ nav:
     - Sprint (08/04 - 14/04): 'sprint2.md'
     - Sprint (15/04 - 21/04): 'sprint3.md'
     - Sprint (02/04 - 25/04): 'sprint4.md'
+ - Storymap e Protótipo: 'storymap.md'
 
  - Releases:
     - Release 1(26/04): 'release1.md'
@@ -44,15 +45,15 @@ theme:
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: indigo
+      primary: pink
+      accent: pink
       toggle:
         icon: material/toggle-switch
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: black
-      accent: indigo
+      primary: pink
+      accent: pink
       toggle:
         icon: material/toggle-switch-off
         name: Switch to system preference
