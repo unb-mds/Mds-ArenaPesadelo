@@ -3,13 +3,14 @@ import { PublicRoute } from './PublicRoutes';
 import { PrivateRoute } from './PrivateRoutes';
 import { Dashboard } from '../pages/private/Dashboard';
 import { Login } from '../pages/public/Login';
-import { User} from '../pages/public/User';
+import { User } from '../pages/public/User';
 import { Inicial } from '../pages/public/Inicial';
+import { Leagues } from '../pages/private/Leagues';
 
 export const Routes = () => {
   return (
     <RoutesDOM>
-<Route
+      <Route
         element={
           <PublicRoute>
             <Outlet />
@@ -17,28 +18,7 @@ export const Routes = () => {
         }
       >
         <Route path="/" element={<Inicial />} />
-        <Route path="/inicial" element={<Inicial />} />
-      </Route>  
-
-      <Route
-        element={
-          <PublicRoute>
-            <Outlet />
-          </PublicRoute>
-        }
-      >
-        <Route path="/" element={<User />} />
         <Route path="/user" element={<User />} />
-      </Route>  
-
-      <Route
-        element={
-          <PublicRoute>
-            <Outlet />
-          </PublicRoute>
-        }
-      >
-        <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
       </Route>
 
@@ -50,6 +30,7 @@ export const Routes = () => {
         }
       >
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/leagues" element={<Leagues />} />
       </Route>
     </RoutesDOM>
   )

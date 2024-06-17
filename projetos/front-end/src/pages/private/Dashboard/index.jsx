@@ -53,7 +53,7 @@ export const Dashboard = () => {
           </div>
 
           <div>
-            <button onClick={() => navigate('/dashboard')}>
+            <button onClick={() => navigate('/leagues')}>
               <img src={trophy} alt="Campeonatos" />
 
               <h1>Campeonatos</h1>
