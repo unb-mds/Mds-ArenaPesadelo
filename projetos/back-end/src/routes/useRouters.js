@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const connection = require('../db'); // Ajuste conforme necessário
 
-//rota para obter dados do banco de dados
-router.get('/dados', (req, res) => {
-  connection.query('SELECT * FROM Cadastro', (err, results) => {
+router.get('/tournaments', (req, res) => {
+  connection.query('SELECT * FROM tournaments', (err, results) => {
     if (err) {
-      return res.status(500).send(err);
+      return res.status(500).json({ error: err.message });
     }
     res.json(results);
   });
