@@ -1,14 +1,17 @@
-const express = require ("express");
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const routes = require('./routes');
 const app = express();
-const mysql = require('mysql2') 
+const port = 3000;
 
-const db = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: "182110",
-  database: "login",
+// Use o middleware CORS
+app.use(cors());
+// Middleware para interpretar o corpo das requisições como JSON
+app.use(bodyParser.json());
+
+app.use('/api', routes);
+
+app.listen(port, () => {
+    console.log(`Servidor rodando em http://localhost:${port}`);
 });
-
-app.listen(3001,()=>{
-  console.log("Sistema Online");
- })
