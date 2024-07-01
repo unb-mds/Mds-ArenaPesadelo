@@ -89,7 +89,7 @@ export const Leagues = () => {
 
                   <span>Times: {item.teams}</span>
 
-                  <Button>Visualizar</Button>
+                  <Button onClick={() => navigate('/league/0')}>Visualizar</Button>
                 </div>
               </Item>
             )
