@@ -6,6 +6,7 @@ import { Login } from '../pages/public/Login';
 import { User } from '../pages/public/User';
 import { Inicial } from '../pages/public/Inicial';
 import { Leagues } from '../pages/private/Leagues';
+import { CreateLeague } from '../pages/private/CreateLeague';
 
 export const Routes = () => {
   return (
@@ -31,6 +32,7 @@ export const Routes = () => {
       >
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/leagues" element={<Leagues />} />
+        <Route path="/create-league" element={<CreateLeague />} />
       </Route>
     </RoutesDOM>
   )
