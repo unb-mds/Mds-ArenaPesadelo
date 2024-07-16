@@ -30,21 +30,9 @@ O projeto é software livre e está sob a licença [MIT](./LICENSE).
 <table style="margin-left: auto; margin-right: auto;">
     <tr>
         <td align="center">
-            <a href="https://github.com/drykette">
-                <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/23423067?v=4" width="100px;"/>
-                <h5 class="text-center">Adrielly Rodrigues</h5>
-            </a>
-        </td>
-        <td align="center">
             <a href="https://github.com/BrunoOLiveirax">
                 <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/111513555?v=4" width="100px;"/>
                 <h5 class="text-center">Bruno Oliveira</h5>
-            </a>
-        </td>
-        <td align="center">
-            <a href="https://github.com/Kauanviictor">
-                <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/101677333?v=4" width="100px;"/>
-                <h5 class="text-center">Kauan Victor</h5>
             </a>
         </td>
         <td align="center">
