@@ -17,5 +17,5 @@ function App() {
     </StyleSheetManager>
   );
 }
-//tmj aqui
+
 export default App;
