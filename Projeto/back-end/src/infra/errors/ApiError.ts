@@ -3,8 +3,8 @@ export default class ApiError {
 
   public readonly message: string = '';
 
-  constructor(message: string, code: number) {
+  constructor(message: string, code?: number) {
     this.message = message;
-    this.code = code;
+    this.code = code || 400;
   }
 }
