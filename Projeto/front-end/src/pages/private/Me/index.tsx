@@ -3,7 +3,7 @@ import { Header } from "../../../components/Header";
 import useAuth from "../../../hooks/useAuth";
 import { Container, Content, InputWrapper } from "./styles";
 import { Controller, useForm } from "react-hook-form";
-import { IForm } from "./insterfaces";
+import { IForm } from "./interfaces";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
