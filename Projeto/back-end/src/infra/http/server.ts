@@ -27,3 +27,5 @@ app.use((error: any, _: Request, res: Response, __: NextFunction) => {
 app.listen(process.env.APP_PORT, () => {
   console.log(`🚀 Server stared on port ${process.env.APP_PORT}`);
 });
+
+// teste
