@@ -38,6 +38,13 @@ export const Dropdown = () => {
               </button>
             )}
 
+            {user?.access === UserAccess.USER && (
+              <button type="button" onClick={() => navigate('/my-teams')}>
+                <MdManageAccounts color="#fff" size={24} />
+                Times
+              </button>
+            )}
+
             <button type="button" onClick={() => navigate('/me')}>
               <MdOutlineSettings color="#fff" size={24} />
               Configuração

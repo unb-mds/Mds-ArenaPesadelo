@@ -1,7 +1,7 @@
 import { FC, ReactNode, ButtonHTMLAttributes } from "react"
 import { Container } from "./styles"
 
-interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
 }
 

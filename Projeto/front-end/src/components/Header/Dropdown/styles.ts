@@ -20,6 +20,8 @@ export const Content = styled.div`
 
   z-index: 99;
 
+  box-shadow: 0px 2px 2px 0px #00000040;
+
   top: calc(100% + 6px);
   right: 0;
 
