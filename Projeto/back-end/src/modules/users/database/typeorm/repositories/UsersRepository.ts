@@ -18,6 +18,7 @@ export default class UsersRepository implements IUsersRepository {
       full_name: data.fullName,
       email: data.email,
       password: data.password,
+      registration: data.registration,
     };
 
     const createdUser = this.ormRepository.create(user);
@@ -41,6 +42,7 @@ export default class UsersRepository implements IUsersRepository {
       email: data.email,
       password: data.password,
       last_active: data.lastActive,
+      registration: data.registration,
     };
 
     const updatedUser = this.ormRepository.merge(user, updateData);

@@ -15,7 +15,10 @@ export default class User {
   password: string;
 
   @Column('time with time zone')
-  last_active: Date;
+  last_active: number;
+
+  @Column('varchar', { length: 255, nullable: true })
+  registration?: string;
 
   @CreateDateColumn()
   created_at: Date;

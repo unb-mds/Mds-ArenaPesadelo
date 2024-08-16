@@ -17,4 +17,21 @@ userRoutes.post(
   usersController.create
 );
 
+userRoutes.put(
+  `/:userId`,
+  celebrate({
+    [Segments.PARAMS]: {
+      userId: Joi.string().required().uuid(),
+    },
+    [Segments.BODY]: {
+      fullName: Joi.string().max(255),
+      email: Joi.string().max(255),
+      oldPassword: Joi.string().max(255),
+      password: Joi.string().max(255),
+      registration: Joi.string().max(255),
+    },
+  }),
+  usersController.update,
+);
+
 export default userRoutes;
