@@ -16,6 +16,16 @@ userRoutes.post(
   }),
   usersController.create
 );
+userRoutes.post(
+  `/sessions`,
+  celebrate({
+    [Segments.BODY]: {
+      email: Joi.string().required().max(255),
+      password: Joi.string().required().max(255),
+    },
+  }),
+  usersController.createSessions
+);
 
 userRoutes.put(
   `/:userId`,
