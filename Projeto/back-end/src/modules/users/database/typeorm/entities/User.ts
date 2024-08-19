@@ -1,5 +1,10 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
+export enum UserAccess {
+  'USER' = 1,
+  'ADMIN' = 2,
+}
+
 @Entity('users')
 export default class User {
   @PrimaryGeneratedColumn('uuid')
@@ -19,6 +24,9 @@ export default class User {
 
   @Column('varchar', { length: 255, nullable: true })
   registration?: string;
+
+  @Column('int', { nullable: false, default: 1 })
+  access: UserAccess;
 
   @CreateDateColumn()
   created_at: Date;

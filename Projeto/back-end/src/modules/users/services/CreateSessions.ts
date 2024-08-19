@@ -31,20 +31,22 @@ export default class CreateSessions {
 
     const user = await this.usersRepository.findByEmail(email);
 
-    if (!user) throw new ApiError('Wrong email or password!');
+    if (!user) throw new ApiError('Email ou senha incorreto(s)');
 
     const passwordCheck = await this.hashProvider.check(
       user.password,
       password,
     );
 
-    if (!passwordCheck) throw new ApiError('Wrong email or password!');
+    if (!passwordCheck) throw new ApiError('Email ou senha incorreto(s)');
 
     const tokenPayload = { userId: user.id };
 
     const token = sign(tokenPayload, jwtConfig.secret, {
       expiresIn: jwtConfig.exp,
     });
+
+    this.usersRepository.update(user, { lastActive: Date.now() });
 
     return { token, user };
   }

@@ -1,6 +1,7 @@
 import { Router } from "express";
 import UsersController from "../controllers/UsersController";
 import { celebrate, Joi, Segments } from "celebrate";
+import ensureUserAuth from "../middleware/ensureUserAuth";
 
 const userRoutes = Router();
 const usersController = new UsersController();
@@ -12,6 +13,7 @@ userRoutes.post(
       fullName: Joi.string().required().max(255),
       email: Joi.string().required().max(255),
       password: Joi.string().required().max(255),
+      registration: Joi.string().required().max(255),
     },
   }),
   usersController.create
@@ -28,11 +30,9 @@ userRoutes.post(
 );
 
 userRoutes.put(
-  `/:userId`,
+  `/`,
+  ensureUserAuth,
   celebrate({
-    [Segments.PARAMS]: {
-      userId: Joi.string().required().uuid(),
-    },
     [Segments.BODY]: {
       fullName: Joi.string().max(255),
       email: Joi.string().max(255),
@@ -42,6 +42,18 @@ userRoutes.put(
     },
   }),
   usersController.update,
+);
+
+userRoutes.patch(
+  `/accesses/:userId`,
+  ensureUserAuth,
+  celebrate({
+    [Segments.PARAMS]: { userId: Joi.string().required().uuid() },
+    [Segments.BODY]: {
+      access: Joi.number().required(),
+    },
+  }),
+  usersController.updateUserAccess,
 );
 
 export default userRoutes;

@@ -11,21 +11,30 @@ type IRequest = IUsersDTO;
 @Service()
 export default class CreateUsers {
   constructor(
-    @Inject('typeorm.usersRepository')
+    @Inject("typeorm.usersRepository")
     private usersRepository: IUsersRepository,
 
-    @Inject('hashProviders.bcrypt')
-    private hashProvider: IHashProvider,
+    @Inject("hashProviders.bcrypt")
+    private hashProvider: IHashProvider
   ) {}
 
   public async execute(data: IRequest): Promise<User> {
     const userData = { ...data };
 
     const emailAlreadyInUse = await this.usersRepository.findByEmail(
-      data.email,
+      data.email
     );
 
-    if (emailAlreadyInUse) throw new ApiError('Este email está em uso!');
+    if (emailAlreadyInUse) throw new ApiError("Este email está em uso!");
+
+    if (data.registration) {
+      const registrationAlreadyInUse =
+        await this.usersRepository.findByRegistration(data.registration);
+
+      if (registrationAlreadyInUse) {
+        throw new ApiError("Número de matrícula em uso por outra conta!");
+      }
+    }
 
     const hashedPassword = await this.hashProvider.hash(userData.password);
 

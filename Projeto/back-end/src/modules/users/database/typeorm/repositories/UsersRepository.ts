@@ -43,6 +43,7 @@ export default class UsersRepository implements IUsersRepository {
       password: data.password,
       last_active: data.lastActive,
       registration: data.registration,
+      access: data.access,
     };
 
     const updatedUser = this.ormRepository.merge(user, updateData);
@@ -50,5 +51,11 @@ export default class UsersRepository implements IUsersRepository {
     await this.ormRepository.save(updatedUser);
 
     return updatedUser;
+  }
+
+  public async findByRegistration(registration: string): Promise<User | undefined> {
+    return (await this.ormRepository.findOne({
+      where: { registration, },
+    })) || undefined;
   }
 }
