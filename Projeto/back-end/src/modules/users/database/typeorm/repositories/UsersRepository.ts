@@ -52,4 +52,10 @@ export default class UsersRepository implements IUsersRepository {
 
     return updatedUser;
   }
+
+  public async findByRegistration(registration: string): Promise<User | undefined> {
+    return (await this.ormRepository.findOne({
+      where: { registration, },
+    })) || undefined;
+  }
 }

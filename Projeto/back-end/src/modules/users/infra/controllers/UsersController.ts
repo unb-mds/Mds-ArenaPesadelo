@@ -36,7 +36,7 @@ export default class UsersController {
 
     return res.status(200).json(response);
   }
-  
+
   public async updateUserAccess(req: Request, res: Response): Promise<Response> {
     const { access } = req.body;
     const { id: loggedUserId } = req.user;
