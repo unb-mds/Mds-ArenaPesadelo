@@ -46,6 +46,8 @@ export default class CreateSessions {
       expiresIn: jwtConfig.exp,
     });
 
+    this.usersRepository.update(user, { lastActive: Date.now() });
+
     return { token, user };
   }
 }
