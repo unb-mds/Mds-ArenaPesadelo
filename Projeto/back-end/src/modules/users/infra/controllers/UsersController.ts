@@ -16,7 +16,7 @@ export default class UsersController {
   }
 
   public async update(req: Request, res: Response): Promise<Response> {
-    const { userId } = req.params;
+    const { id: userId } = req.user;
     const data = req.body;
 
     const service = Container.get(EditUsers);
