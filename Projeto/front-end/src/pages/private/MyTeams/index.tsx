@@ -7,6 +7,7 @@ import { IOption } from "../../../components/Select/interfaces";
 import { api } from "../../../services/api";
 import { SingleValue } from "react-select";
 import { ITeam, ITeamMember } from "./interfaces";
+import { FiEdit, FiTrash2 } from "react-icons/fi";
 
 export const MyTeams = () => {
   const [modalities, setModalities] = useState<IOption[]>([]);
@@ -38,13 +39,9 @@ export const MyTeams = () => {
   const getTeamMembers = useCallback(async (option: SingleValue<IOption>) => {
     if (!option?.value) return;
 
-    // const { data: teamMembers } = await api.get('/teams/leaders/list/filter', {
-    //   params: {
-    //     modality: option.value,
-    //   }
-    // });
-
-    const teamMembers: ITeamMember[] = [];
+    const { data: teamMembers } = await api.get(
+      `/team-members/teams/${option.value}`
+    );
 
     setTeamMembers(teamMembers);
   }, []);
@@ -56,9 +53,40 @@ export const MyTeams = () => {
     }))
   }, [teams]);
 
+  const handleDeleteTeamMember = useCallback(async (member: ITeamMember) => {
+    const confirmed = confirm(`Você quer mesmo remover ${member.name} da sua equipe?`);
+
+    if (!confirmed) return;
+
+    await api.delete(`/team-members/${member.id}`);
+
+    setTeamMembers(oldState => oldState.filter(item => item.id !== member.id));
+  }, []);
+
   const tableData = useMemo(() => {
-    return teamMembers.map(() => <div />);
-  }, [teamMembers]);
+    return teamMembers.map(member => {
+      return (
+        <>
+          <span>{member.name}</span>
+
+          <span>{member.registration}</span>
+
+          <div>
+            <button type="button">
+              <FiEdit size={18} color="#DA1F4F" strokeWidth={2.5} />
+            </button>
+
+            <button
+              type="button"
+              onClick={() => handleDeleteTeamMember(member)}
+            >
+              <FiTrash2 size={18} color="#DA1F4F" strokeWidth={2.5} />
+            </button>
+          </div>
+        </>
+      )
+    });
+  }, [teamMembers, handleDeleteTeamMember]);
 
   return (
     <Container>
