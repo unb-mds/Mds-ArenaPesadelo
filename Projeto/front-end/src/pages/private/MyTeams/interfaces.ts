@@ -6,4 +6,5 @@ export interface ITeam {
 export interface ITeamMember {
   id: string;
   name: string;
+  registration: string;
 }
