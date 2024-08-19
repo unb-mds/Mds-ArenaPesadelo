@@ -43,6 +43,7 @@ export default class UsersRepository implements IUsersRepository {
       password: data.password,
       last_active: data.lastActive,
       registration: data.registration,
+      access: data.access,
     };
 
     const updatedUser = this.ormRepository.merge(user, updateData);

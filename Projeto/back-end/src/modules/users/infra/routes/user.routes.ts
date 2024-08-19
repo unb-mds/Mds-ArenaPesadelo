@@ -43,4 +43,16 @@ userRoutes.put(
   usersController.update,
 );
 
+userRoutes.patch(
+  `/accesses/:userId`,
+  ensureUserAuth,
+  celebrate({
+    [Segments.PARAMS]: { userId: Joi.string().required().uuid() },
+    [Segments.BODY]: {
+      access: Joi.number().required(),
+    },
+  }),
+  usersController.updateUserAccess,
+);
+
 export default userRoutes;

@@ -3,6 +3,7 @@ import Container from "typedi";
 import CreateUsers from "../../services/CreateUsers";
 import EditUsers from "../../services/EditUsers";
 import CreateSessions from "../../services/CreateSessions";
+import UpdateUserAccess from "../../services/UpdateUserAccess";
 
 export default class UsersController {
   public async create(req: Request, res: Response): Promise<Response> {
@@ -34,5 +35,17 @@ export default class UsersController {
     const response = await service.execute({ email, password });
 
     return res.status(200).json(response);
+  }
+  
+  public async updateUserAccess(req: Request, res: Response): Promise<Response> {
+    const { access } = req.body;
+    const { id: loggedUserId } = req.user;
+    const { userId } = req.params;
+
+    const service = Container.get(UpdateUserAccess);
+
+    const user = await service.execute({ access, loggedUserId, userId });
+
+    return res.status(201).json(user);
   }
 }
