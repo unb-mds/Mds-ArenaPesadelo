@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Header } from "../../../components/Header";
-import { Container, Content, Table } from "./styles";
+import { Container, Content, LoaderContainer, Table } from "./styles";
 import { Select } from "../../../components/Select";
 import { Input } from "../../../components/Input";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -14,6 +14,7 @@ import { FaCirclePlus } from "react-icons/fa6";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
+import { TailSpin } from "react-loader-spinner";
 
 export const MyTeams = () => {
   const formValidation = useMemo(() => {
@@ -31,6 +32,7 @@ export const MyTeams = () => {
   const [teams, setTeams] = useState<ITeam[]>([]);
   const [teamMembers, setTeamMembers] = useState<ITeamMember[]>([]);
   const [selectedTeam, setSelectedTeam] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function loadModalities() {
@@ -53,6 +55,8 @@ export const MyTeams = () => {
       });
 
       setTeams(teams);
+      setSelectedTeam(null);
+      setTeamMembers([]);
     },
     []
   );
@@ -60,12 +64,15 @@ export const MyTeams = () => {
   const getTeamMembers = useCallback(async (option: SingleValue<IOption>) => {
     if (!option?.value) return;
 
+    setSelectedTeam(option.value as string);
+    setLoading(true);
+
     const { data: teamMembers } = await api.get(
       `/team-members/teams/${option.value}`
     );
 
-    setSelectedTeam(option.value as string);
     setTeamMembers(teamMembers);
+    setLoading(false);
   }, []);
 
   const teamsOptions = useMemo(() => {
@@ -171,6 +178,7 @@ export const MyTeams = () => {
             <Select
               name="teams"
               label=""
+              value={!selectedTeam ? null : teamsOptions.find(team => team.value === selectedTeam)}
               placeholder="Selecione o seu time"
               options={teamsOptions}
               onChange={getTeamMembers}
@@ -228,7 +236,13 @@ export const MyTeams = () => {
               </button>
             </form>
 
-            <Table data={tableData} />
+            {loading ? (
+              <LoaderContainer>
+                <TailSpin width={24} height={24} color="#DA1F4F" />
+              </LoaderContainer>
+            ) : (
+              <Table data={tableData} />
+            )}
           </div>
         </main>
       </Content>

@@ -86,3 +86,11 @@ export const Content = styled.div`
 export const Table = styled(TableComponent)`
   margin-top: 48px;
 `;
+
+export const LoaderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-top: 48px;
+`;
