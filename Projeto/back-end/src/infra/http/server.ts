@@ -26,6 +26,9 @@ app.use((error: any, _: Request, res: Response, __: NextFunction) => {
 
   return res.status(500).send({ message: 'Internal server error', code: 500 });
 });
+app.use((req: Request, res: Response) => {
+  return res.status(404).send('not found');
+})
 
 app.listen(process.env.APP_PORT, () => {
   console.log(`🚀 Server stared on port ${process.env.APP_PORT}`);
