@@ -29,34 +29,46 @@ export default class EditUsers {
       userId,
     );
 
-    if (!user) throw new ApiError('Could not find related user to update!');
+    if (!user) throw new ApiError('Não foi possível encontrar o usuário para editar!');
 
     const dataToUpdate = { ...data };
 
     if (data.password) {
       if (!data.oldPassword)
-        throw new ApiError('You must provide your old password to update to a new one!');
+        throw new ApiError('Para atualizar sua senha, forneça a sua senha atual!');
 
       const passwordValidation = await this.hashProvider.check(
         user.password,
         data.oldPassword
       );
 
-      if (!passwordValidation) throw new ApiError('Wrong password!');
+      if (!passwordValidation) throw new ApiError('A senha atual está incorreta!');
 
       const updatedPass = await this.hashProvider.hash(
-        data.password,
+        data.password.trim(),
       );
 
       dataToUpdate.password = updatedPass;
     }
 
-    if (data.email && data.email !== user.email) {
+    if (data.email && data.email.trim() !== user.email.trim()) {
       const emailInUse = await this.usersRepository.findByEmail(
         data.email,
       );
 
-      if (emailInUse) throw new ApiError('Este email está em uso por outra conta!');
+      if (emailInUse) {
+        throw new ApiError('Este email está em uso por outra conta!');
+      }
+    }
+
+    if (data.registration && data.registration.trim() !== user.registration?.trim()) {
+      const registrationInUse = await this.usersRepository.findByEmail(
+        data.registration,
+      );
+
+      if (registrationInUse) {
+        throw new ApiError('A matrícula fornecida está em uso por outra conta!');
+      }
     }
 
     const updatedUser = await this.usersRepository.update(

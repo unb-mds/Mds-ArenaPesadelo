@@ -13,6 +13,7 @@ userRoutes.post(
       fullName: Joi.string().required().max(255),
       email: Joi.string().required().max(255),
       password: Joi.string().required().max(255),
+      registration: Joi.string().required().max(255),
     },
   }),
   usersController.create
