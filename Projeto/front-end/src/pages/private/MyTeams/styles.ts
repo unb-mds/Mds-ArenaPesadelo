@@ -58,6 +58,28 @@ export const Content = styled.div`
         margin-bottom: 33px;
       }
     }
+
+    > div:nth-child(2) {
+      > form {
+        display: flex;
+        gap: 20px;
+
+        margin-top: 27px;
+
+        > button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          cursor: pointer;
+
+          &:disabled {
+            cursor: help;
+            opacity: .5;
+          }
+        }
+      }
+    }
   }
 `;
 
