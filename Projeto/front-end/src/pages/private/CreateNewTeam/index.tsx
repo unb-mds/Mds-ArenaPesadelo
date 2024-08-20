@@ -18,10 +18,14 @@ import { v4 } from "uuid";
 import { toast } from "react-toastify";
 
 export const CreateNewTeam = () => {
-  const teamMemberFormValidation = useMemo(() => {
-    return Yup.object().shape({
+  const validateTeamMemberInfo = useCallback(async (data: ITeamMember) => {
+    const shape = Yup.object().shape({
       name: Yup.string().required("Este campo é obrigatório!"),
       registration: Yup.string().required("Este campo é obrigatório!"),
+    });
+
+    await shape.validate(data, {
+      abortEarly: false,
     });
   }, []);
 
@@ -36,9 +40,7 @@ export const CreateNewTeam = () => {
 
   const navigate = useNavigate();
   const { user } = useAuth();
-  const teamMemberForm = useForm<ITeamMemberForm>({
-    resolver: yupResolver(teamMemberFormValidation),
-  });
+  const teamMemberForm = useForm<ITeamMemberForm>();
   const newTeamForm = useForm<INewTeamForm>({
     resolver: yupResolver(newTeamFormValidation),
   });
@@ -46,6 +48,7 @@ export const CreateNewTeam = () => {
   const [image, setImage] = useState<File | null>(null);
   const [modalities, setModalities] = useState<IOption[]>([]);
   const [teamMembers, setTeamMembers] = useState<ITeamMember[]>([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function loadModalities() {
@@ -74,14 +77,24 @@ export const CreateNewTeam = () => {
           registration: data.registration,
         };
 
+        await validateTeamMemberInfo(teamMember);
+
         setTeamMembers((oldState) => [...oldState, teamMember]);
 
         teamMemberForm.reset();
       } catch (err) {
         console.log(err);
+
+        if (err instanceof Yup.ValidationError) {
+          err.inner.forEach((error) => {
+            const { path, message } = error;
+
+            teamMemberForm.setError(path as any, { message });
+          });
+        }
       }
     },
-    [teamMemberForm]
+    [teamMemberForm, validateTeamMemberInfo]
   );
 
   const tableData = useMemo(() => {
@@ -115,6 +128,8 @@ export const CreateNewTeam = () => {
 
   const handleCreateNewTeam = useCallback(async (data: INewTeamForm) => {
     try {
+      setLoading(true);
+
       const formData = new FormData();
 
       if (image) formData.append('image', image);
@@ -122,7 +137,15 @@ export const CreateNewTeam = () => {
       formData.append('name', data.name);
       formData.append('modality', data.modality.toString());
 
-      await api.post("/teams", formData);
+      const { data: createdTeam } = await api.post("/teams", formData);
+
+      await Promise.all(teamMembers.map(async member => {
+        await api.post('/team-members', {
+          name: member.name,
+          registration: member.registration,
+          teamId: createdTeam.id,
+        });
+      }));
 
       toast('Time criado com sucesso!', {
         type: 'success',
@@ -135,8 +158,10 @@ export const CreateNewTeam = () => {
           type: "error",
         });
       }
+    } finally {
+      setLoading(false);
     }
-  }, [image, navigate]);
+  }, [image, navigate, teamMembers]);
 
   return (
     <Container>
@@ -265,7 +290,7 @@ export const CreateNewTeam = () => {
 
               <Table data={tableData} />
 
-              <Button>Criar novo time</Button>
+              <Button loading={loading}>Criar novo time</Button>
             </div>
           </form>
         </main>

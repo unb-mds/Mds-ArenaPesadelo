@@ -5,7 +5,7 @@ import {
   useCallback,
   useState,
   InputHTMLAttributes,
-  useEffect
+  useEffect,
 } from "react";
 import { Container, Error } from "./styles";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -31,8 +31,8 @@ export const Input: FC<IInput> = ({
   const [type, setType] = useState(rest.type || "text");
 
   useEffect(() => {
-    if (!value) setActive(false);
-  }, [value]);
+    if (typeof value === 'undefined') setActive(false);
+  }, [value])
 
   const handleFocus = useCallback(
     (event: FocusEvent<HTMLInputElement>) => {
