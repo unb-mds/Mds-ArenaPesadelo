@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Header } from "../../../components/Header";
 import { Container, Content, LoaderContainer, Table } from "./styles";
 import { Select } from "../../../components/Select";
@@ -17,6 +17,8 @@ import { toast } from "react-toastify";
 import { TailSpin } from "react-loader-spinner";
 
 export const MyTeams = () => {
+  const navigate = useNavigate();
+
   const formValidation = useMemo(() => {
     return Yup.object().shape({
       name: Yup.string().required("Campo obrigatório!"),
@@ -108,7 +110,7 @@ export const MyTeams = () => {
           <span>{member.registration}</span>
 
           <div>
-            <button type="button">
+            <button type="button" onClick={() => navigate(`/team-members/${member.id}`)}>
               <FiEdit size={18} color="#DA1F4F" strokeWidth={2.5} />
             </button>
 
@@ -122,7 +124,7 @@ export const MyTeams = () => {
         </>
       );
     });
-  }, [teamMembers, handleDeleteTeamMember]);
+  }, [teamMembers, handleDeleteTeamMember, navigate]);
 
   const handleAddTeamMember = useCallback(async (data: IAddTeamMemberForm) => {
     try {

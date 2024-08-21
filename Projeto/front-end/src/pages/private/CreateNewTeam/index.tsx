@@ -7,7 +7,7 @@ import { IOption } from "../../../components/Select/interfaces";
 import { api } from "../../../services/api";
 import { Select } from "../../../components/Select";
 import { Input } from "../../../components/Input";
-import { FiEdit, FiTrash2 } from "react-icons/fi";
+import { FiTrash2 } from "react-icons/fi";
 import { FaCirclePlus } from "react-icons/fa6";
 import useAuth from "../../../hooks/useAuth";
 import { Controller, useForm } from "react-hook-form";
@@ -106,10 +106,6 @@ export const CreateNewTeam = () => {
           <span>{member.registration}</span>
 
           <div>
-            <button type="button">
-              <FiEdit size={18} color="#DA1F4F" strokeWidth={2.5} />
-            </button>
-
             <button
               type="button"
               onClick={() =>

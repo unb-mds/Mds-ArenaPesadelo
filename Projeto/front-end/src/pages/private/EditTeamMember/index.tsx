@@ -55,7 +55,7 @@ export const EditTeamMember = () => {
     try {
       setLoading(true);
 
-      await api.post(`/team-members/${teamMemberId}`, data);
+      await api.put(`/team-members/${teamMemberId}`, data);
 
       toast('Membro da equipe atualizado com sucesso!', {
         type: 'success',
