@@ -7,6 +7,7 @@ import { LoginModal } from "../components/LoginModal";
 import { Me } from "../pages/private/Me";
 import { MyTeams } from "../pages/private/MyTeams";
 import { CreateNewTeam } from "../pages/private/CreateNewTeam";
+import { EditTeamMember } from "../pages/private/EditTeamMember";
 
 export const Routes = () => {
   return (
@@ -23,6 +24,7 @@ export const Routes = () => {
           <Route path="/me" element={<Me />} />
           <Route path="/my-teams" element={<MyTeams />} />
           <Route path="/new-team" element={<CreateNewTeam />} />
+          <Route path="/team-members/:teamMemberId" element={<EditTeamMember />} />
         </Route>
 
         <Route

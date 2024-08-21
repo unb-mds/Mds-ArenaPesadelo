@@ -31,7 +31,7 @@ export const Input: FC<IInput> = ({
   const [type, setType] = useState(rest.type || "text");
 
   useEffect(() => {
-    if (typeof value === 'undefined') setActive(false);
+    setActive(!(typeof value === 'undefined'));
   }, [value])
 
   const handleFocus = useCallback(
