@@ -8,6 +8,7 @@ import { Me } from "../pages/private/Me";
 import { MyTeams } from "../pages/private/MyTeams";
 import { CreateNewTeam } from "../pages/private/CreateNewTeam";
 import { EditTeamMember } from "../pages/private/EditTeamMember";
+import { Championships } from "../pages/public/Championships";
 
 export const Routes = () => {
   return (
@@ -36,6 +37,7 @@ export const Routes = () => {
           }
         >
           <Route path="/sign-up" element={<SingUp />} />
+          <Route path="/championships" element={<Championships />} />
           <Route path="/" element={<SingUp />} />
         </Route>
       </DOMRoutes>
