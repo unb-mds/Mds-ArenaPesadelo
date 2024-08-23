@@ -26,6 +26,7 @@ export const Routes = () => {
           <Route path="/my-teams" element={<MyTeams />} />
           <Route path="/new-team" element={<CreateNewTeam />} />
           <Route path="/team-members/:teamMemberId" element={<EditTeamMember />} />
+          <Route path="/championships" element={<Championships />} />
         </Route>
 
         <Route

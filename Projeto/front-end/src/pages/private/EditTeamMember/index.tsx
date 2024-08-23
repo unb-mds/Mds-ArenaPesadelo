@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Header } from "../../../components/Header";
 import { Container, Content, Button } from "./styles";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -10,8 +10,11 @@ import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
 import { IOption } from "../../../components/Select/interfaces";
+import { Navigator } from "../../../components/Navigator";
 
 export const EditTeamMember = () => {
+  const { pathname } = useLocation();
+
   const editTeamMemberValidation = useMemo(() => {
     return Yup.object().shape({
       name: Yup.string().required("Este campo é obrigatório!"),
@@ -86,21 +89,15 @@ export const EditTeamMember = () => {
       <Header shadow />
 
       <Content>
-        <header>
-          <h1>GERENCIAMENTO DE EQUIPES</h1>
-
-          <div>
-            <Link to="/my-teams">Times</Link>
-
-            <Link to="/new-team">
-              Criar novo time
-            </Link>
-
-            <Link to={`/team-members/${teamMemberId}`} className="active">
-              Editar membro da equipe
-            </Link>
-          </div>
-        </header>
+        <Navigator
+          title="Editar membro da equipe"
+          active={pathname}
+          links={[
+            { to: '/my-teams', text: 'Times', },
+            { to: '/new-team', text: 'Criar novo time', },
+            { to: `/team-members/${teamMemberId}`, text: 'Colega de equipe', },
+          ]}
+        />
 
         <main>
           <form onSubmit={editTeamMemberForm.handleSubmit(handleEditTeamMember)}>

@@ -24,7 +24,7 @@ export const Header: FC<IHeader> = ({ shadow = false }) => {
             <Link to="/home">TABELA</Link>
           </li>
           <li>
-            <Link to="">CAMPEONATOS PARA INSCRIÇÃO</Link>
+            <Link to="/championships">CAMPEONATOS PARA INSCRIÇÃO</Link>
           </li>
         </ul>
 

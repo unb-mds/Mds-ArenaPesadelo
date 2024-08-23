@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Header } from "../../../components/Header";
 import { Container, Content, Button, Table } from "./styles";
 import { ImagePicker } from "../../../components/ImagePicker";
@@ -16,8 +16,11 @@ import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { v4 } from "uuid";
 import { toast } from "react-toastify";
+import { Navigator } from "../../../components/Navigator";
 
 export const CreateNewTeam = () => {
+  const { pathname } = useLocation();
+
   const validateTeamMemberInfo = useCallback(async (data: ITeamMember) => {
     const shape = Yup.object().shape({
       name: Yup.string().required("Este campo é obrigatório!"),
@@ -164,17 +167,14 @@ export const CreateNewTeam = () => {
       <Header shadow />
 
       <Content>
-        <header>
-          <h1>GERENCIAMENTO DE EQUIPES</h1>
-
-          <div>
-            <Link to="/my-teams">Times</Link>
-
-            <Link to="/new-team" className="active">
-              Criar novo time
-            </Link>
-          </div>
-        </header>
+        <Navigator
+          title="Criar novo time"
+          active={pathname}
+          links={[
+            { to: '/my-teams', text: 'Times', },
+            { to: '/new-team', text: 'Criar novo time', },
+          ]}
+        />
 
         <main>
           <form onSubmit={newTeamForm.handleSubmit(handleCreateNewTeam)}>

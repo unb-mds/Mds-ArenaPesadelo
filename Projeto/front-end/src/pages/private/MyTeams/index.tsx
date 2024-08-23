@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Header } from "../../../components/Header";
 import { Container, Content, LoaderContainer, Table } from "./styles";
 import { Select } from "../../../components/Select";
@@ -15,9 +15,11 @@ import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
 import { TailSpin } from "react-loader-spinner";
+import { Navigator } from "../../../components/Navigator";
 
 export const MyTeams = () => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const formValidation = useMemo(() => {
     return Yup.object().shape({
@@ -154,17 +156,14 @@ export const MyTeams = () => {
       <Header shadow />
 
       <Content>
-        <header>
-          <h1>GERENCIAMENTO DE EQUIPES</h1>
-
-          <div>
-            <Link to="/my-teams" className="active">
-              Times
-            </Link>
-
-            <Link to="/new-team">Criar novo time</Link>
-          </div>
-        </header>
+        <Navigator
+          title="Gerenciamento de equipes"
+          active={pathname}
+          links={[
+            { to: '/my-teams', text: 'Times', },
+            { to: '/new-team', text: 'Criar novo time', },
+          ]}
+        />
 
         <main>
           <div>
