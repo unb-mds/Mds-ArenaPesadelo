@@ -9,6 +9,8 @@ import { MyTeams } from "../pages/private/MyTeams";
 import { CreateNewTeam } from "../pages/private/CreateNewTeam";
 import { EditTeamMember } from "../pages/private/EditTeamMember";
 import { Championships } from "../pages/public/Championships";
+import { Restricted } from "./Restricted";
+import { CreateChampionship } from "../pages/private/CreateChampionship";
 
 export const Routes = () => {
   return (
@@ -27,6 +29,16 @@ export const Routes = () => {
           <Route path="/new-team" element={<CreateNewTeam />} />
           <Route path="/team-members/:teamMemberId" element={<EditTeamMember />} />
           <Route path="/championships" element={<Championships />} />
+        </Route>
+
+        <Route
+          element={
+            <Restricted>
+              <Outlet />
+            </Restricted>
+          }
+        >
+          <Route path="/create-championship" element={<CreateChampionship />} />
         </Route>
 
         <Route

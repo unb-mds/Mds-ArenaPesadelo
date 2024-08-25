@@ -10,7 +10,7 @@ export const Navigator: FC<INavigator> = ({ links, title, active }) => {
 
       <div>
         {links.map(link => (
-          <Link to={link.to} className={link.to === active ? 'active' : ''}>
+          <Link to={link.to} key={link.text} className={link.to === active ? 'active' : ''}>
             {link.text}
           </Link>
         ))}

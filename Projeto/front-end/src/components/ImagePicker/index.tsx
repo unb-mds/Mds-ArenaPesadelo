@@ -3,7 +3,7 @@ import { Container, MissingImage } from "./styles";
 import { IImagePicker } from "./interfaces";
 import { FiCamera, FiImage } from "react-icons/fi";
 
-export const ImagePicker: FC<IImagePicker> = ({ defaultImage, onPick }) => {
+export const ImagePicker: FC<IImagePicker> = ({ defaultImage, onPick, type }) => {
   const [image, setImage] = useState(defaultImage);
 
   const handlePickImage = useCallback(
@@ -27,7 +27,7 @@ export const ImagePicker: FC<IImagePicker> = ({ defaultImage, onPick }) => {
   );
 
   return (
-    <Container>
+    <Container type={type}>
       {image ? (
         <img src={image} alt="Selected image" />
       ) : (

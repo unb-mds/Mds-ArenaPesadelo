@@ -6,6 +6,7 @@ interface ILabel {
 
 export const Container = styled.div`
   position: relative;
+  margin-top: 8px;
 `;
 
 export const Label = styled.label<ILabel>`
