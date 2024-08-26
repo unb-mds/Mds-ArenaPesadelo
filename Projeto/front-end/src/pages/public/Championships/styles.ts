@@ -31,20 +31,35 @@ export const Championship = styled.div`
   display: flex;
   align-items: flex-start;
 
-  min-height: 210px;
+  height: 210px;
 
   border: 1px solid var(--light-gray);
   border-radius: 5px;
 
   > header {
+    height: 100%;
+
     > img {
       width: 370px;
-      min-height: 210px;
+      height: 100%;
 
       border-radius: 4px 0 0 4px;
 
       object-fit: cover;
       object-position: center;
+    }
+
+    > div {
+      width: 370px;
+      height: 100%;
+
+      border-radius: 4px 0 0 4px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background-color: var(--heavy-gray);
     }
   }
 

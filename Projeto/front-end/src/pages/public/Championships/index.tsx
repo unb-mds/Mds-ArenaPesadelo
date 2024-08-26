@@ -7,6 +7,7 @@ import { IChampionship } from "./interfaces";
 import parseToBSBTime from "../../../utils/parseToBSBTime";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import { MdBrokenImage } from 'react-icons/md';
 
 export const Championships = () => {
   const [championships, setChampionships] = useState<IChampionship[]>([]);
@@ -45,7 +46,13 @@ export const Championships = () => {
             return (
               <Championship>
                 <header>
-                  {championship.photo_url ? <img src={championship.photo_url} alt="" /> : null}
+                  {championship.photo_url ? (
+                    <img src={championship.photo_url} alt="imagem de capa" />
+                  ) : (
+                    <div>
+                      <MdBrokenImage color="#fff" size={40} />
+                    </div>
+                  )}
                 </header>
 
                 <main>
@@ -73,10 +80,7 @@ export const Championships = () => {
                     <span>{championship.participants}</span>
                   </ChampionshipParticipants>
 
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis magni adipisci, minus possimus doloremque distinctio, sed ipsam magnam delectus perferendis nobis quasi cumque laboriosam fugit voluptatum impedit, deleniti neque veniam!
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia aut in, odit quam sequi porro natus laboriosam modi labore excepturi est laborum dolore corporis harum eum. Repudiandae modi nihil delectus.
-                  </p>
+                  {/* <p>{championship.description}</p> */}
                 </main>
 
                 <footer>
