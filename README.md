@@ -1,30 +1,57 @@
-# React + TypeScript + Vite
+# 2024-1 Squad-06
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Arena Pesadelo
 
-Currently, two official plugins are available:
+<div align="center">
+    <img src="docs/assets/IMAGEM_PESADELO.png" style="width:20vw"/>
+</div>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Sobre o Projeto:
 
-## Expanding the ESLint configuration
+- **Descrição:** A Atlética Pesadelo é uma organização estudantil da Universidade de Brasília (UnB) especificamente do campus no Gama, que foi criada em 2017 com o intuito de melhorar a saúde mental dos alunos. Hoje a Pesadelo representa como atética todas as engenharias da FGA e faz parte de  três LIGAS, sendo elas: A Maquinada, LaUnB e do LIG.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Problemas atuais:** Atualmente a Atlética Pesadelo tem um grande problema na criação e na organização de campeonatos, tanto campeonatos online como os E-sports quanto os campeonatos presentes como o Esportes, gerando grande dificuldade na organização, informações, chaveamento e praticidade das competições. Outros pontos, como as informações sobre os processos seletivos de equipes e informações atualizadas são um problema da Atlética.
+ 
+- **Resultados esperados:** Um site em que o estudante possa ter acesso as informações atualizadas sobre os campeonatos ativos e eventos organizados pela atlética. Com acesso para gestores e atletas, facilitando a criação de novos campeonatos, atualização de informações, gerenciamento das equipes e visualização do ranqueamento dos campeonatos etc.
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **Habilidades necessárias/preferenciais:** Conhecimento em HTML; Conhecimento em CSS; Github; Conhecimento em Javascript, Node.js e react.js.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **Mentores:** Professora Carla Rocha - Matéria de MDS.
+
+- **Tamanho do projeto:**  Médio/Grande.
+
+- **Dificuldade:** Média.
+
+
+
+## Desenvolvedores
+
+<center>
+<table style="margin-left: auto; margin-right: auto;">
+    <tr>
+        <td align="center">
+            <a href="https://github.com/BrunoOLiveirax">
+                <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/111513555?v=4" width="100px;"/>
+                <h5 class="text-center">Bruno Oliveira</h5>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/zlimaz">
+                <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/98031566?v=4" width="100px;"/>
+                <h5 class="text-center">Miguel Arthur</h5>
+            </a>
+        </td>
+          <td align="center">
+            <a href="https://github.com/PauloFilho2">
+                <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/131913211?v=4" width="100px;"/>
+                <h5 class="text-center">Paulo Filho</h5>
+            </a>    
+        </td>
+          <td align="center">
+            <a href="https://github.com/PedroALuciano">
+                <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/108702746?v=4" width="100px;"/>
+                <h5 class="text-center">Pedro Luciano</h5>
+            </a>
+</table>
+</center>

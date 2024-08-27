@@ -38,6 +38,7 @@ export const Select: FC<ISelect> = ({ name, options, label, placeholder, error, 
           menu: (base) => ({
             ...base,
             backgroundColor: '#fff',
+            zIndex: 100,
           }),
           option: (base, state) => ({
             ...base,

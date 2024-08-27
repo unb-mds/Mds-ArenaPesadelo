@@ -1,8 +1,17 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Container = styled.div`
-  width: 70px;
-  height: 70px;
+interface IContainer {
+  type?: 'square' | 'circle';
+}
+
+export const Container = styled.div<IContainer>`
+  ${props => props.type === 'circle' ? css`
+    width: 70px;
+    height: 70px;
+  ` : css`
+    width: 320px;
+    height: 200px;
+  `}
 
   border-radius: 50%;
 
@@ -10,8 +19,12 @@ export const Container = styled.div`
 
   cursor: pointer;
 
+  > div:nth-child(1) {
+    border-radius: ${props => props.type === 'circle' ? '50%' : '8px'};
+  }
+
   > img {
-    border-radius: 50%;
+    border-radius: ${props => props.type === 'circle' ? '50%' : '8px'};
 
     object-fit: cover;
     object-position: center;
@@ -54,8 +67,8 @@ export const Container = styled.div`
     justify-content: center;
 
     position: absolute;
-    top: 0;
-    right: 0;
+    top: ${props => props.type === 'circle' ? '0' : '-10px'};
+    right: ${props => props.type === 'circle' ? '0' : '-10px'};
 
     background-color: var(--pink);
   }
@@ -68,8 +81,6 @@ export const MissingImage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  border-radius: 50%;
 
   border: 1px solid #282828;
 `;

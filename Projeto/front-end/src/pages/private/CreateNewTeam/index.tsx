@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Header } from "../../../components/Header";
 import { Container, Content, Button, Table } from "./styles";
 import { ImagePicker } from "../../../components/ImagePicker";
@@ -7,7 +7,7 @@ import { IOption } from "../../../components/Select/interfaces";
 import { api } from "../../../services/api";
 import { Select } from "../../../components/Select";
 import { Input } from "../../../components/Input";
-import { FiEdit, FiTrash2 } from "react-icons/fi";
+import { FiTrash2 } from "react-icons/fi";
 import { FaCirclePlus } from "react-icons/fa6";
 import useAuth from "../../../hooks/useAuth";
 import { Controller, useForm } from "react-hook-form";
@@ -16,12 +16,19 @@ import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { v4 } from "uuid";
 import { toast } from "react-toastify";
+import { Navigator } from "../../../components/Navigator";
 
 export const CreateNewTeam = () => {
-  const teamMemberFormValidation = useMemo(() => {
-    return Yup.object().shape({
+  const { pathname } = useLocation();
+
+  const validateTeamMemberInfo = useCallback(async (data: ITeamMember) => {
+    const shape = Yup.object().shape({
       name: Yup.string().required("Este campo é obrigatório!"),
       registration: Yup.string().required("Este campo é obrigatório!"),
+    });
+
+    await shape.validate(data, {
+      abortEarly: false,
     });
   }, []);
 
@@ -36,9 +43,7 @@ export const CreateNewTeam = () => {
 
   const navigate = useNavigate();
   const { user } = useAuth();
-  const teamMemberForm = useForm<ITeamMemberForm>({
-    resolver: yupResolver(teamMemberFormValidation),
-  });
+  const teamMemberForm = useForm<ITeamMemberForm>();
   const newTeamForm = useForm<INewTeamForm>({
     resolver: yupResolver(newTeamFormValidation),
   });
@@ -46,6 +51,7 @@ export const CreateNewTeam = () => {
   const [image, setImage] = useState<File | null>(null);
   const [modalities, setModalities] = useState<IOption[]>([]);
   const [teamMembers, setTeamMembers] = useState<ITeamMember[]>([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function loadModalities() {
@@ -74,14 +80,24 @@ export const CreateNewTeam = () => {
           registration: data.registration,
         };
 
+        await validateTeamMemberInfo(teamMember);
+
         setTeamMembers((oldState) => [...oldState, teamMember]);
 
         teamMemberForm.reset();
       } catch (err) {
         console.log(err);
+
+        if (err instanceof Yup.ValidationError) {
+          err.inner.forEach((error) => {
+            const { path, message } = error;
+
+            teamMemberForm.setError(path as any, { message });
+          });
+        }
       }
     },
-    [teamMemberForm]
+    [teamMemberForm, validateTeamMemberInfo]
   );
 
   const tableData = useMemo(() => {
@@ -93,10 +109,6 @@ export const CreateNewTeam = () => {
           <span>{member.registration}</span>
 
           <div>
-            <button type="button">
-              <FiEdit size={18} color="#DA1F4F" strokeWidth={2.5} />
-            </button>
-
             <button
               type="button"
               onClick={() =>
@@ -115,6 +127,8 @@ export const CreateNewTeam = () => {
 
   const handleCreateNewTeam = useCallback(async (data: INewTeamForm) => {
     try {
+      setLoading(true);
+
       const formData = new FormData();
 
       if (image) formData.append('image', image);
@@ -122,7 +136,15 @@ export const CreateNewTeam = () => {
       formData.append('name', data.name);
       formData.append('modality', data.modality.toString());
 
-      await api.post("/teams", formData);
+      const { data: createdTeam } = await api.post("/teams", formData);
+
+      await Promise.all(teamMembers.map(async member => {
+        await api.post('/team-members', {
+          name: member.name,
+          registration: member.registration,
+          teamId: createdTeam.id,
+        });
+      }));
 
       toast('Time criado com sucesso!', {
         type: 'success',
@@ -135,25 +157,24 @@ export const CreateNewTeam = () => {
           type: "error",
         });
       }
+    } finally {
+      setLoading(false);
     }
-  }, [image, navigate]);
+  }, [image, navigate, teamMembers]);
 
   return (
     <Container>
       <Header shadow />
 
       <Content>
-        <header>
-          <h1>GERENCIAMENTO DE EQUIPES</h1>
-
-          <div>
-            <Link to="/my-teams">Times</Link>
-
-            <Link to="/new-team" className="active">
-              Criar novo time
-            </Link>
-          </div>
-        </header>
+        <Navigator
+          title="Criar novo time"
+          active={pathname}
+          links={[
+            { to: '/my-teams', text: 'Times', },
+            { to: '/new-team', text: 'Criar novo time', },
+          ]}
+        />
 
         <main>
           <form onSubmit={newTeamForm.handleSubmit(handleCreateNewTeam)}>
@@ -265,7 +286,7 @@ export const CreateNewTeam = () => {
 
               <Table data={tableData} />
 
-              <Button>Criar novo time</Button>
+              <Button loading={loading}>Criar novo time</Button>
             </div>
           </form>
         </main>

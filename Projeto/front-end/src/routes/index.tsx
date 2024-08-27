@@ -7,6 +7,10 @@ import { LoginModal } from "../components/LoginModal";
 import { Me } from "../pages/private/Me";
 import { MyTeams } from "../pages/private/MyTeams";
 import { CreateNewTeam } from "../pages/private/CreateNewTeam";
+import { EditTeamMember } from "../pages/private/EditTeamMember";
+import { Championships } from "../pages/public/Championships";
+import { Restricted } from "./Restricted";
+import { CreateChampionship } from "../pages/private/CreateChampionship";
 
 export const Routes = () => {
   return (
@@ -23,6 +27,18 @@ export const Routes = () => {
           <Route path="/me" element={<Me />} />
           <Route path="/my-teams" element={<MyTeams />} />
           <Route path="/new-team" element={<CreateNewTeam />} />
+          <Route path="/team-members/:teamMemberId" element={<EditTeamMember />} />
+          <Route path="/championships" element={<Championships />} />
+        </Route>
+
+        <Route
+          element={
+            <Restricted>
+              <Outlet />
+            </Restricted>
+          }
+        >
+          <Route path="/create-championship" element={<CreateChampionship />} />
         </Route>
 
         <Route
@@ -34,6 +50,7 @@ export const Routes = () => {
           }
         >
           <Route path="/sign-up" element={<SingUp />} />
+          <Route path="/championships" element={<Championships />} />
           <Route path="/" element={<SingUp />} />
         </Route>
       </DOMRoutes>

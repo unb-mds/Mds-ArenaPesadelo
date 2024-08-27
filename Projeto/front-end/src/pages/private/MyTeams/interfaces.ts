@@ -8,3 +8,8 @@ export interface ITeamMember {
   name: string;
   registration: string;
 }
+
+export interface IAddTeamMemberForm {
+  name: string;
+  registration: string;
+}

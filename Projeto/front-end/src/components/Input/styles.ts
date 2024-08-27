@@ -13,6 +13,7 @@ export const Container = styled.div<IContainer>`
   border-radius: 3px;
 
   padding-left: 8px;
+  padding-right: 8px;
 
   position: relative;
 
@@ -30,7 +31,7 @@ export const Container = styled.div<IContainer>`
 
     background-color: inherit;
 
-    padding: 0 6px;
+    padding: 0 10px;
 
     border-radius: 4px 4px 0 0;
 
