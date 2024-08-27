@@ -5,6 +5,7 @@ import CreateTeams from "../../services/Create";
 import ListTeamsByLeaderId from "../../services/ListByLeaderId";
 import UpdateTeams from "../../services/Update";
 import { instanceToInstance } from "class-transformer";
+import FilterLeaderTeamsByModality from "../../services/FilterByLeaderAndModality";
 
 export default class TeamsController {
   public async find(req: Request, res: Response): Promise<Response> {
@@ -58,6 +59,19 @@ export default class TeamsController {
     const team = await service.execute(data);
 
     const response = instanceToInstance(team);
+
+    return res.json(response);
+  }
+
+  public async filterLeaderTeams(req: Request, res: Response): Promise<Response> {
+    const modality = Number(req.query.modality);
+    const { id } = req.user;
+
+    const service = Container.get(FilterLeaderTeamsByModality);
+
+    const teams = await service.execute({ leaderId: id, modality });
+
+    const response = instanceToInstance(teams);
 
     return res.json(response);
   }

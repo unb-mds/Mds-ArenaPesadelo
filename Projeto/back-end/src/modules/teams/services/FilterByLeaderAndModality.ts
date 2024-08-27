@@ -6,10 +6,11 @@ import ApiError from "../../../infra/errors/ApiError";
 
 interface IRequest {
   leaderId: string;
+  modality: number;
 }
 
 @Service()
-export default class ListTeamsByLeaderId {
+export default class FilterLeaderTeamsByModality {
   constructor(
     @Inject('typeorm.teamsRepository')
     private teamsRepository: ITeamsRepository,
@@ -18,7 +19,7 @@ export default class ListTeamsByLeaderId {
     private usersRepository: IUsersRepository,
   ) {}
 
-  public async execute({ leaderId }: IRequest): Promise<Team[]> {
+  public async execute({ leaderId, modality }: IRequest): Promise<Team[]> {
     const leader = await this.usersRepository.findById(leaderId);
 
     if (!leader) {
@@ -27,6 +28,8 @@ export default class ListTeamsByLeaderId {
 
     const teams = await this.teamsRepository.listByLeaderId(leader.id);
 
-    return teams;
+    const filtered = teams.filter(team => team.modality === modality);
+
+    return filtered;
   }
 }

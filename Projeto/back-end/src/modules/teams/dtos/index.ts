@@ -1,6 +1,6 @@
 export interface ITeamsDTO {
-    name: string;
-    description?: string;
-    modality: number;
-    leaderId: string;
-  }
+  name: string;
+  description?: string;
+  modality: number;
+  leaderId: string;
+}

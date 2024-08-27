@@ -18,6 +18,12 @@ teamsRoutes.get(
   ensureUserAuth,
   teamsController.listByLeaderId
 );
+teamsRoutes.get(
+  "/leaders/list/filter",
+  ensureUserAuth,
+  celebrate({[Segments.QUERY]: { modality: Joi.number().required() }}),
+  teamsController.filterLeaderTeams
+);
 
 teamsRoutes.post(
   "/",
