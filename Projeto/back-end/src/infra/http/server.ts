@@ -12,12 +12,15 @@ import '../../shared/containers';
 import routes from './routes/index.routes';
 import cors from 'cors';
 
+import path from 'path';
+
 const app = express();
 
 app.use(cors({ origin: '*' }))
 
 app.use(express.json());
 app.use(routes);
+app.use('/uploads', express.static(path.resolve('uploads')))
 app.use(errors());
 app.use((error: any, _: Request, res: Response, __: NextFunction) => {
   if (error instanceof ApiError) return res.status(error.code).json(error);

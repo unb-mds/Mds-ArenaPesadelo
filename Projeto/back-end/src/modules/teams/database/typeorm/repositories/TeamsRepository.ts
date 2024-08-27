@@ -19,6 +19,7 @@ export default class TeamsRepository implements ITeamsRepository {
       name: data.name,
       description: data.description,
       modality: data.modality,
+      photo: data.photo,
     });
 
     await this.ormRepository.save(team);
@@ -38,6 +39,7 @@ export default class TeamsRepository implements ITeamsRepository {
       description: data.description,
       modality: data.modality,
       leader_id: data.leaderId,
+      photo: data.photo,
     });
 
     await this.ormRepository.save(updatedTeam);

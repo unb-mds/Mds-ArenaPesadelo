@@ -60,6 +60,6 @@ export default class TeamsTable1722786852277 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    // CODE
+    await queryRunner.dropTable('teams');
   }
 }

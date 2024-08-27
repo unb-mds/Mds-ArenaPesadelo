@@ -2,6 +2,8 @@ import { celebrate, Joi, Segments } from "celebrate";
 import { Router } from "express";
 import ensureUserAuth from "../../../users/infra/middleware/ensureUserAuth";
 import TeamsController from "../controllers/TeamsController";
+import uploadConfig from "../../../../configs/uploadConfig";
+import multer from "multer";
 
 const teamsRoutes = Router();
 const teamsController = new TeamsController();
@@ -28,6 +30,7 @@ teamsRoutes.get(
 teamsRoutes.post(
   "/",
   ensureUserAuth,
+  multer({ storage: uploadConfig.config.upload }).single('image'),
   celebrate({
     [Segments.BODY]: {
       name: Joi.string().required(),

@@ -3,4 +3,5 @@ export interface ITeamsDTO {
   description?: string;
   modality: number;
   leaderId: string;
+  photo?: string;
 }

@@ -4,6 +4,7 @@ import IUsersRepository from "../../users/repositories/IUsersRepository";
 import Team, { Modality } from "../database/typeorm/entities/Team";
 import { ITeamsDTO } from "../dtos";
 import ApiError from "../../../infra/errors/ApiError";
+import { IDiskProvider } from "../../../providers/DiskProvider/models/IDiskProvider";
 
 @Service()
 export default class CreateTeams {
@@ -13,10 +14,13 @@ export default class CreateTeams {
 
     @Inject('typeorm.usersRepository')
     private usersRepository: IUsersRepository,
+
+    @Inject('diskProviders.disk')
+    private diskProvider: IDiskProvider,
   ) {}
 
   public async execute(data: ITeamsDTO): Promise<Team> {
-    const { leaderId, modality } = data;
+    const { leaderId, modality, photo } = data;
 
     const leader = await this.usersRepository.findById(leaderId);
 
@@ -31,6 +35,8 @@ export default class CreateTeams {
     if (invalidModality) {
       throw new ApiError('A modalidade escolhida é inválida!');
     }
+
+    if (photo) await this.diskProvider.saveFiles([photo]);
 
     const team = await this.teamsRepository.create(data);
 

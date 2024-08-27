@@ -22,10 +22,12 @@ export default class TeamsController {
 
   public async create(req: Request, res: Response): Promise<Response> {
     const data = { ...req.body };
+    const filename = req.file?.filename;
 
     const service = Container.get(CreateTeams);
 
     data.leaderId = req.user.id;
+    data.photo = filename;
 
     const team = await service.execute(data);
 
