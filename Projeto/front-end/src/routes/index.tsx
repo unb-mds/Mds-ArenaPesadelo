@@ -11,6 +11,7 @@ import { EditTeamMember } from "../pages/private/EditTeamMember";
 import { Championships } from "../pages/public/Championships";
 import { Restricted } from "./Restricted";
 import { CreateChampionship } from "../pages/private/CreateChampionship";
+import { Administration } from "../pages/private/Administration";
 
 export const Routes = () => {
   return (
@@ -39,6 +40,7 @@ export const Routes = () => {
           }
         >
           <Route path="/create-championship" element={<CreateChampionship />} />
+          <Route path="/administration" element={<Administration />} />
         </Route>
 
         <Route

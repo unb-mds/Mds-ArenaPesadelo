@@ -2,9 +2,9 @@ import { FC } from "react";
 import { IRow } from "./interfaces";
 import { Container } from "./styles";
 
-export const Row: FC<IRow> = ({ children }) => {
+export const Row: FC<IRow> = ({ children, length }) => {
   return (
-    <Container>
+    <Container length={length}>
       {children}
     </Container>
   );

@@ -122,7 +122,7 @@ export const CreateChampionship = () => {
           links={[
             { to: "", text: "Times" },
             { to: "/create-championship", text: "Novo campeonato" },
-            { to: ``, text: "Administração de usuarios" },
+            { to: `/administration`, text: "Gerenciar permissões" },
           ]}
         />
 
