@@ -15,4 +15,4 @@ export const connection = new DataSource({
 
 connection.initialize()
   .then(() => console.log('💾 Database connected successfully!'))
-  .catch(() => console.log('❗Database connection failed!'));
+  .catch((err) => console.log('❗Database connection failed!', err));
