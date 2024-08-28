@@ -4,6 +4,8 @@ import CreateUsers from "../../services/CreateUsers";
 import EditUsers from "../../services/EditUsers";
 import CreateSessions from "../../services/CreateSessions";
 import UpdateUserAccess from "../../services/UpdateUserAccess";
+import ListUsers from "../../services/List";
+import { instanceToInstance } from "class-transformer";
 
 export default class UsersController {
   public async create(req: Request, res: Response): Promise<Response> {
@@ -47,5 +49,17 @@ export default class UsersController {
     const user = await service.execute({ access, loggedUserId, userId });
 
     return res.status(201).json(user);
+  }
+
+  public async list(req: Request, res: Response): Promise<Response> {
+    const userId = req.user.id;
+
+    const service = Container.get(ListUsers);
+
+    const users = await service.execute({ userId });
+
+    const response = instanceToInstance(users);
+
+    return res.json(response);
   }
 }

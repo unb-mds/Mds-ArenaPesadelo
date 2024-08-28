@@ -58,4 +58,8 @@ export default class UsersRepository implements IUsersRepository {
       where: { registration, },
     })) || undefined;
   }
+
+  public async list(relations: string[] = []): Promise<User[]> {
+    return this.ormRepository.find({ relations });
+  }
 }

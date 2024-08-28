@@ -6,6 +6,8 @@ import ensureUserAuth from "../middleware/ensureUserAuth";
 const userRoutes = Router();
 const usersController = new UsersController();
 
+userRoutes.get('/', ensureUserAuth, usersController.list);
+
 userRoutes.post(
   `/`,
   celebrate({
