@@ -77,7 +77,7 @@ export const Administration = () => {
           title="Administração de usuarios"
           active={pathname}
           links={[
-            { to: "", text: "Times" },
+            { to: "/games", text: "Campeonatos"},
             { to: "/create-championship", text: "Novo campeonato" },
             { to: `/administration`, text: "Gerenciar permissões" },
           ]}
