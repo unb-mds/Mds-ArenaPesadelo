@@ -119,11 +119,12 @@ export const CreateChampionship = () => {
 
       <Content>
         <Navigator
-          title="CRIAÇÃO DE CAMPEONATOS"
+          title="Campeonatos"
           active={pathname}
           links={[
-            { to: "/games", text: "Campeonatos"},
+            { to: "/games", text: "Jogos" },
             { to: "/create-championship", text: "Novo campeonato" },
+            { to: "/manage-championships", text: "Gerenciar campeonatos" },
             { to: `/administration`, text: "Gerenciar permissões" },
           ]}
         />

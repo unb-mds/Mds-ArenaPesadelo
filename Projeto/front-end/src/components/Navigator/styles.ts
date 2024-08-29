@@ -14,8 +14,6 @@ export const Container = styled.header`
     justify-content: flex-start;
     gap: 45px;
 
-    padding-bottom: 10px;
-
     border-bottom: 1px solid var(--black);
 
     > a {
@@ -23,6 +21,8 @@ export const Container = styled.header`
       text-decoration: none;
       font-size: 16px;
       font-weight: 500;
+
+      padding-bottom: 10px;
 
       &.active {
         color: var(--pink);
