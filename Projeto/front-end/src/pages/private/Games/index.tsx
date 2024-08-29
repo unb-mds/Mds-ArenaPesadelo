@@ -17,6 +17,7 @@ export const Games = () => {
           links={[
             { to: "/games", text: "Campeonatos"},
             { to: "/create-championship", text: "Novo campeonato" },
+            { to: "/manage-championships", text: "Gerenciar campeonatos" },
             { to: `/administration`, text: "Gerenciar permissões" },
           ]}
         />

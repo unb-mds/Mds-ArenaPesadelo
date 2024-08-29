@@ -13,6 +13,7 @@ import { Restricted } from "./Restricted";
 import { CreateChampionship } from "../pages/private/CreateChampionship";
 import { Administration } from "../pages/private/Administration";
 import { Games } from "../pages/private/Games";
+import { ChampionshipManagement } from "../pages/private/ChampionshipsManagement";
 
 export const Routes = () => {
   return (
@@ -43,6 +44,7 @@ export const Routes = () => {
           <Route path="/create-championship" element={<CreateChampionship />} />
           <Route path="/administration" element={<Administration />} />
           <Route path="/games" element={<Games />} />
+          <Route path="/manage-championships" element={<ChampionshipManagement />} />
         </Route>
 
         <Route
