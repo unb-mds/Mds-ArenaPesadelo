@@ -11,4 +11,5 @@ export default interface IChampionshipsRepository {
     championship: Championship,
     data: Partial<IChampionshipDTO>
   ): Promise<Championship>;
+  delete(championship: Championship): Promise<Championship>;
 }

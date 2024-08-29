@@ -19,6 +19,8 @@ interface IResponse {
   description?: string;
   location_lat?: number;
   location_lng?: number;
+  modality_name: string;
+  photo_url?: string;
 }
 
 @Service()
@@ -36,7 +38,7 @@ export default class FindChampionshipsByIdService {
     const dateStart = Number(championship.date_start);
 
     const date = format(dateStart, 'yyyy-MM-dd');
-    const from = format(dateStart, 'HH:mm:ss');
+    const from = format(dateStart, 'HH:mm');
 
     const response: IResponse = {
       id,
@@ -50,12 +52,14 @@ export default class FindChampionshipsByIdService {
       date,
       from,
       to: undefined,
+      modality_name: championship.getModalityName(),
+      photo_url: championship.getPhotoUrl() || undefined,
     };
 
     if (championship.date_end) {
       const dateEnd = Number(championship.date_end);
 
-      response.to = format(dateEnd, 'HH:mm:ss');
+      response.to = format(dateEnd, 'HH:mm');
     }
 
     return response;

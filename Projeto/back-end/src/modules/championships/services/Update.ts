@@ -61,14 +61,16 @@ export default class UpdateChampionshipsService {
     const user = await this.usersRepository.findById(userId);
 
     if (!user || user?.access !== UserAccess.ADMIN) {
-      throw new ApiError("Apenas administradores podem criar campeonatos!");
+      throw new ApiError("Apenas administradores podem editar campeonatos!");
     }
 
     const championship = await this.championshipsRepository.findById(
       championshipId
     );
 
-    if (!championship) throw new ApiError('Não é possível editar um registro que não existe!');
+    if (!championship) {
+      throw new ApiError('Não é possível editar um registro que não existe!');
+    }
 
     const parsedDate = addMinutes(this.parseStringDate(date), timezoneOffset);
     const parsedFrom = this.parseHourString(from);

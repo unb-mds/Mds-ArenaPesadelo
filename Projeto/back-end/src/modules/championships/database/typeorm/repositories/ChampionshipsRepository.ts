@@ -96,4 +96,8 @@ export default class ChampionshipsRepository
 
     return updated;
   }
+  
+  public async delete(championship: Championship): Promise<Championship> {
+    return this.ormRepository.remove(championship);
+  }
 }
