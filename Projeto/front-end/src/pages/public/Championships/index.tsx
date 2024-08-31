@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Header } from "../../../components/Header";
 import { Championship, ChampionshipInfo, ChampionshipParticipants, Container, Content } from "./styles";
 import { api } from "../../../services/api";
@@ -8,9 +8,12 @@ import parseToBSBTime from "../../../utils/parseToBSBTime";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { MdBrokenImage } from 'react-icons/md';
+import { RegistrationModal } from "../../../components/Modals/Registration";
 
 export const Championships = () => {
   const [championships, setChampionships] = useState<IChampionship[]>([]);
+  const [showModal, setShowModal] = useState(false);
+  const [championship, setChampionship] = useState('');
 
   useEffect(() => {
     async function loadChampionships() {
@@ -22,7 +25,10 @@ export const Championships = () => {
     loadChampionships();
   }, []);
 
-  console.log(championships);
+  const handleChampionshipRegistrationClick = useCallback(async (id: string) => {
+    setShowModal(true);
+    setChampionship(id);
+  }, []);
 
   return (
     <Container>
@@ -84,13 +90,21 @@ export const Championships = () => {
                 </main>
 
                 <footer>
-                  <Button>INSCREVA - SE</Button>
+                  <Button onClick={() => handleChampionshipRegistrationClick(championship.id)}>
+                    INSCREVA - SE
+                  </Button>
                 </footer>
               </Championship>
             )
           })}
         </div>
       </Content>
+
+      <RegistrationModal
+        championshipId={championship}
+        shown={showModal}
+        onDismiss={() => setShowModal(false)}
+      />
     </Container>
   );
 }

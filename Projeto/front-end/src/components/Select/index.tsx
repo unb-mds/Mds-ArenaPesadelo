@@ -56,6 +56,7 @@ export const Select: FC<ISelect> = ({ name, options, label, placeholder, error, 
             border: '1px solid #282828',
             borderRadius: 3,
             height: 40,
+            background: '#fff',
           }),
          }}
         {...rest}
