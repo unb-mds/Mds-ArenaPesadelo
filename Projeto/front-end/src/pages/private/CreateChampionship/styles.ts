@@ -2,8 +2,15 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   height: 100vh;
-  padding: 0 84px;
-  padding-top: calc(79px + 77px);
+  padding: calc(79px + 77px) 84px;
+
+  @media (max-width: 953px) {
+    padding: calc(79px + 77px) 40px;
+  }
+
+  @media (max-width: 833px) {
+    padding: calc(79px + 77px) 20px;
+  }
 `;
 
 export const Content = styled.div`
@@ -27,6 +34,28 @@ export const Content = styled.div`
           color: var(--heavy-gray);
           font-weight: 500;
         }
+      }
+    }
+  }
+
+  @media (max-width: 750px) {
+    > main {
+      > form {
+        margin-top: 40px;
+
+        > div {
+          gap: 20px;
+
+          min-width: 250px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 642px) {
+    > main {
+      > form {
+        display: block;
       }
     }
   }

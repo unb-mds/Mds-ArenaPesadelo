@@ -84,7 +84,9 @@ export const Administration = () => {
           ]}
         />
 
-        <Table data={tableData} style={{ width: '100%', marginTop: 56 }} />
+        <div>
+          <Table data={tableData} style={{ width: '100%', marginTop: 56 }} />
+        </div>
       </Content>
     </Container>
   )

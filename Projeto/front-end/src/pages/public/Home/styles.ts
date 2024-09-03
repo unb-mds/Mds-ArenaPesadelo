@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const Container = styled.div`
   height: 100vh;
   padding-top: calc(79px);
+
+  @media (max-width: 1024px) {
+    height: auto;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -23,6 +27,15 @@ export const Wrapper = styled.div`
     padding: 0 32px;
     padding-top: 80px;
   }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+
+    > * {
+      padding: 80px 0;
+    }
+  }
 `;
 
 export const Content = styled.div`
@@ -32,14 +45,18 @@ export const Content = styled.div`
 
   border-right: 1px solid var(--light-gray);
 
-  overflow-y: auto;
-
   > header {
     display: flex;
     align-items: center;
     justify-content: flex-start;
 
     gap: 20px;
+
+    > h1 {
+      color: var(--heavy-gray);
+
+      font-size: 24px;
+    }
 
     > div {
       min-width: 230px;
@@ -49,14 +66,50 @@ export const Content = styled.div`
   > main {
     margin-top: 57px;
   }
+
+  @media (max-width: 1152px) {
+    > header {
+      gap: 16px;
+
+      > div {
+        min-width: 180px;
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    > header {
+      flex-direction: column;
+
+      > div {
+        min-width: unset;
+
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    border: 0;
+
+    max-width: 90%;
+
+    margin: 0 20px;
+
+    > header {
+      gap: 8px;
+
+      > h1 {
+        font-size: 18px;
+      }
+    }
+  }
 `;
 
 export const Games = styled.div`
   flex: 1;
 
   height: 100%;
-
-  overflow-y: auto;
 
   > header {
     > h1 {
@@ -73,6 +126,26 @@ export const Games = styled.div`
 
   > main {
     margin-top: 100px;
+  }
+
+  @media (max-width: 1024px) {
+    max-width: 90%;
+    width: 100%;
+    padding-top: 0;
+
+    > header {
+      > h1 {
+        font-size: 18px;
+      }
+    }
+
+    > main {
+      margin-top: 20px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    max-width: 95%;
   }
 `;
 
@@ -157,6 +230,38 @@ export const Game = styled.div`
       }
     }
   }
+
+  @media (max-width: 1024px) {
+    padding: 16px;
+
+    > header {
+      > span {
+        font-size: 14px;
+      }
+    }
+
+    > main {
+      > span {
+        font-size: 14px;
+      }
+    }
+
+    > footer {
+      > span {
+        font-size: 16px;
+      }
+
+      > div {
+        > b {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    padding: 8px;
+  }
 `;
 
 export const NoDataText = styled.span`
@@ -166,4 +271,12 @@ export const NoDataText = styled.span`
 
   font-style: italic;
   font-size: 20px;
+
+  @media (max-width: 1152px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 14px;
+  }
 `;

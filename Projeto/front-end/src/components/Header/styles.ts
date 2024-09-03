@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 interface IContainer {
   shadow: boolean;
+  show: boolean;
 }
 
 export const Container = styled.div<IContainer>`
@@ -9,13 +10,37 @@ export const Container = styled.div<IContainer>`
 
   height: 79px;
 
-  ${props => props.shadow && css`box-shadow: 0px 2px 4px 0px #0A0A0A40;`}
-
   position: absolute;
   top: 0;
   left: 0;
 
   width: 100%;
+
+  /* transition: height .2s; */
+
+  @media (max-width: 614px) {
+    /* overflow: hidden; */
+
+    z-index: 100;
+
+    ${props => !props.show ? css`
+      > div {
+        > div:nth-child(1) {
+          height: 100%;
+        }
+
+        > ul, > div:nth-last-child(1) {
+          display: none;
+        }
+      }
+    ` : css`
+      height: 212px;
+
+      padding: 16px 0;
+    `}
+  }
+
+  ${props => props.shadow && css`box-shadow: 0px 2px 4px 0px #0A0A0A40;`}
 `;
 
 export const Content = styled.div`
@@ -27,6 +52,12 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  > div:nth-child(1) {
+    > button {
+      display: none;
+    }
+  }
 
   > ul {
     display: flex;
@@ -112,6 +143,67 @@ export const Content = styled.div`
       &.sign-up {
         border-color: var(--white);
       }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    max-width: 95%;
+  }
+
+  @media (max-width: 846px) {
+    > ul {
+      gap: 16px;
+    }
+
+    > div:nth-last-child(1) {
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 766px) {
+    > ul {
+      font-size: 12px;
+
+      gap: 8px;
+    }
+
+    > div:nth-last-child(1) {
+      gap: 8px;
+
+      > button {
+        font-size: 12px;
+      }
+    }
+  }
+
+  @media (max-width: 614px) {
+    flex-direction: column;
+    gap: 16px;
+
+    > div:nth-child(1) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      width: 100%;
+
+      > button {
+        display: block;
+      }
+    }
+
+    > ul {
+      flex-direction: column;
+
+      > li {
+        line-height: 25px;
+      }
+    }
+
+    > div:nth-last-child(1) {
+      flex-direction: column;
+
+      width: 100%;
     }
   }
 `;

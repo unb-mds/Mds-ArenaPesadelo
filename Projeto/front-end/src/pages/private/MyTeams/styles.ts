@@ -3,41 +3,18 @@ import { Table as TableComponent } from '../../../components/Table';
 
 export const Container = styled.div`
   height: 100vh;
-  padding: 0 84px;
-  padding-top: calc(79px + 77px);
+  padding: calc(79px + 77px) 84px;
+
+  @media (max-width: 953px) {
+    padding: calc(79px + 77px) 40px;
+  }
+
+  @media (max-width: 833px) {
+    padding: calc(79px + 77px) 20px;
+  }
 `;
 
 export const Content = styled.div`
-  > header {
-    > h1 {
-      color: var(--black);
-      font-size: 24px;
-      margin-bottom: 40px;
-    }
-
-    > div {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 45px;
-
-      padding-bottom: 10px;
-
-      border-bottom: 1px solid var(--black);
-
-      > a {
-        color: var(--black);
-        text-decoration: none;
-        font-size: 16px;
-        font-weight: 500;
-
-        &.active {
-          color: var(--pink);
-        }
-      }
-    }
-  }
-
   > main {
     padding-top: 80px;
 
@@ -76,6 +53,55 @@ export const Content = styled.div`
           &:disabled {
             cursor: help;
             opacity: .5;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 924px) {
+    > main {
+      padding-top: 40px;
+      display: block;
+
+      > div:nth-child(1) {
+        > strong {
+          margin: 20px 0;
+        }
+      }
+
+      > div:nth-child(2) {
+        margin-top: 40px;
+
+        > form {
+          margin-top: 16px;
+
+          > div {
+            flex: 1;
+          }
+        }
+
+        > div {
+          > div {
+            width: 100%  !important;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 425px) {
+    > main {
+      > div:nth-child(2) {
+        > form {
+          display: block;
+
+          > button {
+            margin: 0 auto;
+            margin-top: 16px;
+
+            width: 40px;
+            height: 40px;
           }
         }
       }

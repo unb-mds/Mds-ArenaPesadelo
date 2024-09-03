@@ -179,7 +179,7 @@ export const CreateNewTeam = () => {
         <main>
           <form onSubmit={newTeamForm.handleSubmit(handleCreateNewTeam)}>
             <div>
-              <ImagePicker onPick={handlePickImage} />
+              <ImagePicker onPick={handlePickImage} type="circle" />
 
               <div>
                 <Controller

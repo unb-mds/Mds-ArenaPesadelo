@@ -72,6 +72,12 @@ export const Container = styled.div<IContainer>`
 
     background-color: var(--pink);
   }
+
+  @media (max-width: 362px) {
+    ${props => props.type === 'square' && css`
+      width: 100%;
+    `}
+  }
 `;
 
 export const MissingImage = styled.div`

@@ -6,8 +6,15 @@ interface IGameTeam {
 
 export const Container = styled.div`
   height: 100vh;
-  padding: 0 84px;
-  padding-top: calc(79px + 77px);
+  padding: calc(79px + 77px) 84px;
+
+  @media (max-width: 953px) {
+    padding: calc(79px + 77px) 40px;
+  }
+
+  @media (max-width: 833px) {
+    padding: calc(79px + 77px) 20px;
+  }
 `;
 
 export const Content = styled.div`
@@ -38,9 +45,38 @@ export const Content = styled.div`
         text-transform: uppercase;
       }
     }
+  }
 
+  @media (max-width: 797px) {
     > main {
+      > header {
+        flex-direction: column;
+        gap: 24px;
 
+        > div {
+          width: 100%;
+
+          > div {
+            min-width: unset;
+            max-width: 100%;
+            width: 100%;
+          }
+        }
+
+        > h1 {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 425px) {
+    > main {
+      > header {
+        > div {
+          flex-direction: column;
+        }
+      }
     }
   }
 `;
@@ -81,6 +117,14 @@ export const Controls = styled.div`
     align-items: center;
     justify-content: center;
   }
+
+  @media (max-width: 797px) {
+    > div {
+      > span {
+        font-size: 18px;
+      }
+    }
+  }
 `;
 
 export const GamesContainer = styled.div`
@@ -89,6 +133,10 @@ export const GamesContainer = styled.div`
   gap: 40px;
 
   margin-top: 80px;
+
+  @media (max-width: 541px) {
+    overflow-x: auto;
+  }
 `;
 
 export const NoDataText = styled.span`
@@ -100,6 +148,10 @@ export const NoDataText = styled.span`
 
   font-style: italic;
   font-size: 20px;
+
+  @media (max-width: 797px) {
+    font-size: 16px;
+  }
 `;
 
 export const Game = styled.div`
@@ -113,6 +165,14 @@ export const Game = styled.div`
     font-weight: 300;
     color: var(--black);
   }
+
+  @media (max-width: 757px) {
+    > span {
+      font-size: 14px;
+    }
+  }
+
+
 `;
 
 export const GameTeam = styled.div<IGameTeam>`
@@ -135,8 +195,8 @@ export const GameTeam = styled.div<IGameTeam>`
   display: flex;
   align-items: center;
 
-  background-color: ${props => !props.winner ? 'var(--light-gray)' : 'transparent'};
-  border: 1px solid ${props => props.winner ? 'var(--medium-gray)' : 'transparent'};
+  background-color: ${(props) => !props.winner ? "var(--light-gray)" : "transparent"};
+  border: 1px solid ${(props) => (props.winner ? "var(--medium-gray)" : "transparent")};
 
   border-radius: 5px;
 
@@ -160,6 +220,40 @@ export const GameTeam = styled.div<IGameTeam>`
 
       color: var(--black);
     }
+  }
+
+  @media (max-width: 757px) {
+    &:nth-child(1) {
+      padding-left: 34px;
+      padding-right: 14px;
+
+      > b {
+        font-size: 18px;
+      }
+
+      > div > span {
+        font-size: 14px;
+      }
+    }
+
+    &:nth-last-child(1) {
+      padding-right: 34px;
+      padding-left: 14px;
+
+      text-align: right;
+
+      > b {
+        font-size: 18px;
+      }
+
+      > div > span {
+        font-size: 14px;
+      }
+    }
+  }
+
+  @media (max-width: 541px) {
+    gap: 8px;
   }
 `;
 
@@ -186,5 +280,11 @@ export const GameScore = styled.div`
     font-size: 20px;
     font-weight: 600;
     color: var(--black);
+  }
+
+  @media (max-width: 757px) {
+    > span {
+      font-size: 18px;
+    }
   }
 `;

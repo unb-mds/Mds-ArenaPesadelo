@@ -28,6 +28,11 @@ export const Container = styled.div<IContainer>`
   gap: 122px;
 
   transition: transform .4s;
+
+  > button {
+    color: #fff;
+    font-size: 15px;
+  }
 `;
 
 export const Backdrop = styled.div<IBackdrop>`

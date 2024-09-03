@@ -16,6 +16,8 @@ export const Content = styled.div`
     text-transform: uppercase;
     font-size: 24px;
     font-weight: 600;
+
+    color: var(--heavy-gray);
   }
 
   > div {
@@ -24,6 +26,34 @@ export const Content = styled.div`
     gap: 31px;
 
     margin-top: 59px;
+  }
+
+  @media (max-width: 1146px) {
+    max-width: 90%;
+
+    > h1 {
+      padding-bottom: 16px;
+    }
+
+    > div {
+      margin-top: 40px;
+    }
+  }
+
+  @media (max-width: 766px) {
+    > h1 {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 482px) {
+    > h1 {
+      font-size: 18px;
+
+      padding-bottom: 8px;
+
+      text-align: center;
+    }
   }
 `;
 
@@ -95,6 +125,107 @@ export const Championship = styled.div`
       padding-right: 50px;
     }
   }
+
+  @media (max-width: 1146px) {
+    > main {
+      padding: 0 16px;
+    }
+
+    > footer {
+      padding-right: 24px;
+      padding-top: 24px;
+
+      > button {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+  }
+
+  @media (max-width: 936px) {
+    height: 190px;
+
+    > header {
+      > div {
+        width: 280px;
+      }
+    }
+
+    > main {
+      > div {
+        gap: 8px;
+      }
+    }
+  }
+
+  @media (max-width: 766px) {
+    height: 160px;
+
+    > header {
+      > h1 {
+        font-size: 20px;
+      }
+
+      > div {
+        width: 230px;
+      }
+    }
+
+    > main {
+      > h1 {
+        font-size: 16px;
+      }
+
+      > div {
+        gap: 4px;
+      }
+    }
+
+    > footer {
+      padding-right: 16px;
+      padding-top: 16px;
+
+      > button {
+        padding: 10px;
+
+        font-size: 11px;
+      }
+    }
+  }
+
+  @media (max-width: 614px) {
+    flex-direction: column;
+    height: auto;
+
+    > header {
+      width: 100%;
+
+      > div {
+        height: 120px;
+        width: 100%;
+
+        border-radius: 4px 4px 0 0;
+      }
+    }
+
+    > footer {
+      padding: 0;
+
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      > button {
+        margin: 8px;
+
+        width: auto;
+
+        flex: 1;
+      }
+    }
+  }
 `;
 
 export const ChampionshipInfo = styled.div`
@@ -122,6 +253,14 @@ export const ChampionshipInfo = styled.div`
       color: var(--black);
     }
   }
+
+  @media (max-width: 766px) {
+    > div {
+      > span {
+        font-size: 12px;
+      }
+    }
+  }
 `;
 
 export const ChampionshipParticipants = styled.div`
@@ -142,5 +281,11 @@ export const ChampionshipParticipants = styled.div`
 
   > span:nth-child(2) {
     color: var(--black);
+  }
+
+  @media (max-width: 766px) {
+    > span {
+      font-size: 12px;
+    }
   }
 `;

@@ -29,4 +29,29 @@ export const Container = styled.header`
       }
     }
   }
+
+  @media (max-width: 758px) {
+    > h1 {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    > div {
+      gap: 16px;
+
+      > a {
+        font-size: 14px;
+      }
+    }
+  }
+
+  @media (max-width: 394px) {
+    > div {
+      gap: 8px;
+
+      > a {
+        font-size: 12px;
+      }
+    }
+  }
 `;

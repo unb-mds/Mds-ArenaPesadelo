@@ -54,10 +54,11 @@ export const Routes = () => {
           }
         >
           <Route path="/sign-up" element={<SingUp />} />
-          <Route path="/championships" element={<Championships />} />
-          <Route path="/home" element={<Home />} />
           <Route path="/" element={<SingUp />} />
         </Route>
+
+        <Route path="/championships" element={<Championships />} />
+        <Route path="/home" element={<Home />} />
       </DOMRoutes>
     </BrowserRouter>
   );

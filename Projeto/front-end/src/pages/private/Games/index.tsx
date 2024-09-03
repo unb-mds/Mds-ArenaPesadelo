@@ -201,7 +201,7 @@ export const Games = () => {
               <>
                 <Controls>
                   <div>
-                    <span>{gamePhasesLabel(1)}</span>
+                    <span>{gamePhasesLabel(currentPhase)}</span>
                   </div>
 
                   <div>

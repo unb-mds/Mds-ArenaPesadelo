@@ -13,6 +13,14 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
   }
+
+  @media (max-width: 614px) {
+    width: 100%;
+
+    > button {
+      width: 100%;
+    }
+  }
 `;
 
 export const Content = styled.div`
@@ -95,5 +103,9 @@ export const Content = styled.div`
         transition: background-color .2s;
       }
     }
+  }
+
+  @media (max-width: 614px) {
+    top: calc(100% + 25px);
   }
 `;

@@ -15,18 +15,6 @@ export const Home = () => {
   const [championship, setChampionship] = useState<IChampionship | null>(null);
 
   useEffect(() => {
-    const body = document.getElementsByTagName("body")[0];
-
-    if (!body) return;
-
-    body.style.overflow = "hidden";
-
-    return () => {
-      body.style.overflow = "auto";
-    }
-  }, []);
-
-  useEffect(() => {
     async function loadModality() {
       const { data: modalities } = await api.get(`/constants/modalities`);
 
