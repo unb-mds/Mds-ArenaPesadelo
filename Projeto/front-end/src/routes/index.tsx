@@ -1,7 +1,7 @@
 import { BrowserRouter, Outlet, Route, Routes as DOMRoutes } from "react-router-dom";
 import { Public } from "./Public";
 import { Protected } from "./Protected";
-import { Home } from "../pages/private/Home";
+import { Home } from "../pages/public/Home";
 import { SingUp } from "../pages/public/SignUp";
 import { LoginModal } from "../components/LoginModal";
 import { Me } from "../pages/private/Me";
@@ -26,12 +26,10 @@ export const Routes = () => {
             </Protected>
           }
         >
-          <Route path="/home" element={<Home />} />
           <Route path="/me" element={<Me />} />
           <Route path="/my-teams" element={<MyTeams />} />
           <Route path="/new-team" element={<CreateNewTeam />} />
           <Route path="/team-members/:teamMemberId" element={<EditTeamMember />} />
-          <Route path="/championships" element={<Championships />} />
         </Route>
 
         <Route
@@ -57,6 +55,7 @@ export const Routes = () => {
         >
           <Route path="/sign-up" element={<SingUp />} />
           <Route path="/championships" element={<Championships />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/" element={<SingUp />} />
         </Route>
       </DOMRoutes>
