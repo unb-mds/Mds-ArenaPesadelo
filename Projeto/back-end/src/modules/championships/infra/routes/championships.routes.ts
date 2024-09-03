@@ -12,6 +12,11 @@ championshipsRoutes.get("/", championshipsController.list);
 championshipsRoutes.get("/upcoming", championshipsController.listUpcoming);
 championshipsRoutes.get("/ongoing", championshipsController.listOngoing);
 championshipsRoutes.get(
+  "/modality/:modality",
+  celebrate({ [Segments.PARAMS]: { modality: Joi.number().required() } }),
+  championshipsController.listByModality
+);
+championshipsRoutes.get(
   "/:id",
   celebrate({ [Segments.PARAMS]: { id: Joi.string().required().uuid() } }),
   championshipsController.find
