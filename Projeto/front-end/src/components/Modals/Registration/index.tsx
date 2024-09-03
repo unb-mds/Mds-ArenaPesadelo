@@ -8,18 +8,15 @@ import { Button } from "../../Button";
 import { Link } from "react-router-dom";
 import { IOption } from "../../Select/interfaces";
 import { toast } from "react-toastify";
-import useAuth from "../../../hooks/useAuth";
 
 export const RegistrationModal: FC<IRegistrationModal> = ({
   championshipId,
   shown,
   onDismiss,
 }) => {
-  const { user } = useAuth();
-
   const [teams, setTeams] = useState<ITeam[]>([]);
   const [championship, setChampionship] = useState<IChampionship | null>(null);
-  const [chosenTeam, setChosenTeam] = useState("");
+  const [chosenTeam, setChosenTeam] = useState('');
 
   const [loaded, setLoaded] = useState(false);
 
@@ -27,24 +24,19 @@ export const RegistrationModal: FC<IRegistrationModal> = ({
     setLoaded(false);
 
     async function loadChampionship() {
-      try {
-        const { data: loadedChampionship } = await api.get(
-          `/championships/${championshipId}`
-        );
-        const { data: loadedTeams } = await api.get(
-          `/teams/leaders/list/filter`,
-          {
-            params: { modality: loadedChampionship.modality },
-          }
-        );
+      const { data: loadedChampionship } = await api.get(
+        `/championships/${championshipId}`
+      );
+      const { data: loadedTeams } = await api.get(
+        `/teams/leaders/list/filter`,
+        {
+          params: { modality: loadedChampionship.modality },
+        }
+      );
 
-        setTeams(loadedTeams);
-        setChampionship(loadedChampionship);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoaded(true);
-      }
+      setTeams(loadedTeams);
+      setChampionship(loadedChampionship);
+      setLoaded(true);
     }
 
     const timer = setTimeout(() => loadChampionship(), 1500);
@@ -55,7 +47,7 @@ export const RegistrationModal: FC<IRegistrationModal> = ({
   const teamsOptions = useMemo(() => {
     if (!teams?.length) return [];
 
-    return teams.map((team) => ({ label: team.name, value: team.id }));
+    return teams.map(team => ({ label: team.name, value: team.id }));
   }, [teams]);
 
   const handleChooseTeam = useCallback((option: IOption | null) => {
@@ -69,8 +61,8 @@ export const RegistrationModal: FC<IRegistrationModal> = ({
   const handleRegistration = useCallback(async () => {
     try {
       if (!chosenTeam) {
-        toast("Selecione um time!", {
-          type: "info",
+        toast('Selecione um time!', {
+          type: 'info',
         });
         return;
       }
@@ -82,8 +74,8 @@ export const RegistrationModal: FC<IRegistrationModal> = ({
         championshipId: championship.id,
       });
 
-      toast("Seu time foi inscrito com sucesso!", {
-        type: "success",
+      toast('Seu time foi inscrito com sucesso!', {
+        type: 'success',
       });
 
       onDismiss();
@@ -92,7 +84,7 @@ export const RegistrationModal: FC<IRegistrationModal> = ({
 
       if (err?.response?.data?.message) {
         toast(err?.response?.data?.message, {
-          type: "error",
+          type: 'error',
         });
       }
     }
@@ -105,30 +97,21 @@ export const RegistrationModal: FC<IRegistrationModal> = ({
           <TailSpin width={24} height={24} color="#fff" strokeWidth={2} />
         ) : (
           <div className="content">
-            {!user ? (
-              <span>
-                Você precisa estar autenticado na plataforma para prosseguir com
-                essa ação!
-              </span>
-            ) : (
-              <>
-                <h1>{championship?.name}</h1>
+            <h1>{championship?.name}</h1>
 
-                <div>
-                  <div>
-                    <Select
-                      name="team"
-                      label="Escolha seu time"
-                      options={teamsOptions}
-                      onChange={handleChooseTeam}
-                    />
-                    <Link to="/new-team">crie seu time clicando aqui!</Link>
-                  </div>
+            <div>
+              <div>
+                <Select
+                  name="team"
+                  label="Escolha seu time"
+                  options={teamsOptions}
+                  onChange={handleChooseTeam}
+                />
+                <Link to="/new-team">crie seu time clicando aqui!</Link>
+              </div>
 
-                  <Button onClick={handleRegistration}>Confirmar</Button>
-                </div>
-              </>
-            )}
+              <Button onClick={handleRegistration}>Confirmar</Button>
+            </div>
           </div>
         )}
       </Container>

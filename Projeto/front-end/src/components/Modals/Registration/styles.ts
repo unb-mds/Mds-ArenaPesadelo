@@ -73,16 +73,6 @@ export const Container = styled.div<IContainer>`
   .content {
     opacity: 0;
 
-    > span {
-      font-size: 18px;
-
-      color: #fff;
-
-      text-align: center;
-
-      display: block;
-    }
-
     > h1 {
       font-size: 20px;
       color: #fff;

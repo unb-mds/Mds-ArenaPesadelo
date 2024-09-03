@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
 import { Container, Content } from "./styles";
 import { FC } from "react";
@@ -11,7 +11,6 @@ interface IHeader {
 
 export const Header: FC<IHeader> = ({ shadow = false }) => {
   const { toggleLoginModal, user } = useAuth();
-  const navigate = useNavigate();
 
   return (
     <Container shadow={shadow}>
@@ -38,9 +37,7 @@ export const Header: FC<IHeader> = ({ shadow = false }) => {
                 Login
               </button>
 
-              <button className="sign-up" onClick={() => navigate("/sign-up")}>
-                CADASTRE-SE
-              </button>
+              <button className="sign-up">CADASTRE-SE</button>
             </>
           )}
         </div>
