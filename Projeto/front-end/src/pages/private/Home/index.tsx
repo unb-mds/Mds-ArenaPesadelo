@@ -20,6 +20,10 @@ export const Home = () => {
     if (!body) return;
 
     body.style.overflow = "hidden";
+
+    return () => {
+      body.style.overflow = "auto";
+    }
   }, []);
 
   useEffect(() => {
