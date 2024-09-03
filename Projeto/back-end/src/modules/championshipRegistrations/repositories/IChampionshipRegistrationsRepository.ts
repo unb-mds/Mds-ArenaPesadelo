@@ -4,4 +4,5 @@ import { IChampionshipRegistrationsDTO } from "../dtos/IChampionshipRegistration
 export default interface IChampionshipRegistrationsRepository {
   create(data: IChampionshipRegistrationsDTO): Promise<ChampionshipRegistration>;
   findDuplicates(data: IChampionshipRegistrationsDTO): Promise<ChampionshipRegistration | undefined>;
+  listByChampionshipId(championshipId: string): Promise<ChampionshipRegistration[]>;
 }

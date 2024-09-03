@@ -5,6 +5,7 @@ import ChampionshipRegistration from "../database/typeorm/entities/ChampionshipR
 import { IChampionshipRegistrationsDTO } from "../dtos/IChampionshipRegistrationsDTO";
 import ITeamsRepository from "../../teams/repositories/ITeamsRepository";
 import ApiError from "../../../infra/errors/ApiError";
+import IGamesRepository from "../../games/repositories/IGamesRepository";
 
 interface IRequest extends IChampionshipRegistrationsDTO {
   userId: string;
@@ -21,6 +22,9 @@ export default class CreateChampionshipRegistrationsService {
 
     @Inject('typeorm.teamsRepository')
     private teamsRepository: ITeamsRepository,
+
+    @Inject("typeorm.gamesRepository")
+    private gamesRepository: IGamesRepository,
   ) {}
 
   public async execute(data: IRequest): Promise<ChampionshipRegistration> {
@@ -56,6 +60,33 @@ export default class CreateChampionshipRegistrationsService {
       throw new ApiError('Seu time já foi inscrito nesse campeonato!');
     }
 
-    return this.championshipRegistrationRepository.create(data);
+    const registration = await this.championshipRegistrationRepository.create(data);
+    const registrations = await this.championshipRegistrationRepository.listByChampionshipId(
+      championship.id,
+    );
+
+    if (registrations.length === championship.participants) {
+      const games = championship.participants / 2;
+
+      let phase = 1;
+
+      for (let i = games; i >= 1; i /= 2) {
+        for (let j = 0; j < i; j++) {
+          const [home, visitor] = registrations.splice(0, 2);
+
+          await this.gamesRepository.create({
+            cardinal: j + 1,
+            phase,
+            championshipId: championship.id,
+            home: home?.team_id,
+            visitor: visitor?.team_id,
+          });
+        }
+
+        phase += 1;
+      }
+    }
+
+    return registration;
   }
 }

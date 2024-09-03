@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToMany, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import Team from "../../../../teams/database/typeorm/entities/Team";
 import Championship from "../../../../championships/database/typeorm/entities/Championship";
 
@@ -13,11 +13,11 @@ export default class ChampionshipRegistration {
   @Column('uuid')
   championship_id: string;
 
-  @ManyToMany(() => Team)
+  @ManyToOne(() => Team)
   @JoinColumn({ name: 'team_id' })
   team: Team;
 
-  @ManyToMany(() => Championship)
+  @ManyToOne(() => Championship)
   @JoinColumn({ name: 'championship_id' })
   championship: Championship;
 

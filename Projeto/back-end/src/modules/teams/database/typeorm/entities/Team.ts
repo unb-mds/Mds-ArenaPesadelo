@@ -1,7 +1,8 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import User from "../../../../users/database/typeorm/entities/User";
 import { Exclude, Expose } from "class-transformer";
 import TeamMember from "../../../../teamMembers/database/typeorm/entities/TeamMember";
+import ChampionshipRegistration from "../../../../championshipRegistrations/database/typeorm/entities/ChampionshipRegistration";
 
 export enum Modality {
   FOT_FM = 1,
@@ -42,6 +43,9 @@ export default class Team {
 
   @OneToMany(() => TeamMember, member => member.team)
   team_members: TeamMember[];
+
+  @OneToMany(() => ChampionshipRegistration, registration => registration.team)
+  registrations: ChampionshipRegistration[];
 
   @Expose({ name: 'photo_url' })
   getPhotoUrl(): string | null {
