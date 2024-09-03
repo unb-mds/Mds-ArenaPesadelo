@@ -6,8 +6,8 @@ export default function getServerDate(date?: Date): Date {
 
   console.log(now, { offset });
 
-  if (date && offset !== 0) {
-    const parsedDate = subMinutes(date, offset);
+  if (date) {
+    const parsedDate = offset !== 0 ? subMinutes(date, offset) : date;
 
     console.log('Old date: ', date);
     console.log('Parsed date: ', parsedDate);

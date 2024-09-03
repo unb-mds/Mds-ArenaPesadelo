@@ -35,7 +35,7 @@ export default class FindChampionshipsByIdService {
 
     if (!championship) throw new ApiError('Não foi possível encontrar o campeonato selecionado!');
 
-    const dateStart = Number(championship.date_start);
+    const dateStart = Number(championship.date_start) - (180 * 1000);
 
     const date = format(dateStart, 'yyyy-MM-dd');
     const from = format(dateStart, 'HH:mm');
@@ -57,7 +57,7 @@ export default class FindChampionshipsByIdService {
     };
 
     if (championship.date_end) {
-      const dateEnd = Number(championship.date_end);
+      const dateEnd = Number(championship.date_end) - (180 * 1000);
 
       response.to = format(dateEnd, 'HH:mm');
     }

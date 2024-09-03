@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "start:dev": "tsnd --transpile-only --ignore-watch node_modules ./src/infra/http/server.ts",
-    "database:dev": "typeorm-ts-node-commonjs"
+    "database:dev": "typeorm-ts-node-commonjs",
+    "build": "tsc",
+    "start:prod": "nodemon ./dist/infra/http/server.js"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
