@@ -57,8 +57,17 @@ export const Routes = () => {
           <Route path="/" element={<SingUp />} />
         </Route>
 
-        <Route path="/championships" element={<Championships />} />
-        <Route path="/home" element={<Home />} />
+        <Route
+          element={
+            <>
+              <Outlet />
+              <LoginModal />
+            </>
+          }
+        >
+          <Route path="/championships" element={<Championships />} />
+          <Route path="/home" element={<Home />} />
+        </Route>
       </DOMRoutes>
     </BrowserRouter>
   );
