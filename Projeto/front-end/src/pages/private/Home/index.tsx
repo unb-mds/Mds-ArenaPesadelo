@@ -81,20 +81,27 @@ export const Home = () => {
       if (!championship) return "";
 
       const { participants } = championship;
-      const phases = participants / 2;
+      const games = participants / 2;
 
       const allLabels = [
-        "Oitavas de final",
-        "Quartas de final",
-        "Semi-final",
         "Final",
+        "Semi-final",
+        "Quartas de final",
+        "Oitavas de final",
       ];
+      const possibleLabels: string[] = [];
 
-      const possibleLabels = allLabels.splice(phases);
+      for (let i = games; i >= 1; i /= 2) {
+        const [label] = allLabels.splice(0, 1);
 
-      console.log(possibleLabels);
+        possibleLabels.push(label);
+      }
 
-      return possibleLabels[phase - 1];
+      const usefulLabels = possibleLabels.reverse();
+
+      console.log({ usefulLabels });
+
+      return usefulLabels[phase - 1];
     },
     [championship]
   );
