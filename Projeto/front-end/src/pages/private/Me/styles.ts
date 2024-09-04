@@ -27,6 +27,18 @@ export const Content = styled.div`
     display: flex;
     justify-content: space-between;
   }
+
+  @media (max-width: 1248px) {
+    padding: 35px 50px;
+  }
+
+  @media (max-width: 956px) {
+    padding: 20px;
+
+    > form {
+      flex-direction: column;
+    }
+  }
 `;
 
 export const InputWrapper = styled.div`
@@ -34,4 +46,9 @@ export const InputWrapper = styled.div`
   width: 370px;
 
   margin-top: 23px;
+
+  @media (max-width: 956px) {
+    max-width: 100%;
+    width: 100%;
+  }
 `;

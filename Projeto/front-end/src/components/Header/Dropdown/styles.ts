@@ -13,12 +13,22 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
   }
+
+  @media (max-width: 614px) {
+    width: 100%;
+
+    > button {
+      width: 100%;
+    }
+  }
 `;
 
 export const Content = styled.div`
   position: absolute;
 
   z-index: 99;
+
+  box-shadow: 0px 2px 2px 0px #00000040;
 
   top: calc(100% + 6px);
   right: 0;
@@ -93,5 +103,9 @@ export const Content = styled.div`
         transition: background-color .2s;
       }
     }
+  }
+
+  @media (max-width: 614px) {
+    top: calc(100% + 25px);
   }
 `;

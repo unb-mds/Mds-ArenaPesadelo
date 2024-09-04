@@ -32,9 +32,16 @@ export const Dropdown = () => {
 
           <main>
             {user?.access === UserAccess.ADMIN && (
-              <button type="button" onClick={() => navigate('/management')}>
+              <button type="button" onClick={() => navigate('/games')}>
                 <MdManageAccounts color="#fff" size={24} />
                 Gerenciar
+              </button>
+            )}
+
+            {user?.access === UserAccess.USER && (
+              <button type="button" onClick={() => navigate('/my-teams')}>
+                <MdManageAccounts color="#fff" size={24} />
+                Times
               </button>
             )}
 

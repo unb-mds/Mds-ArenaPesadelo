@@ -5,18 +5,19 @@ interface IContainer {
 }
 
 export const Container = styled.div<IContainer>`
-  background-color: var(--white-smoke);
+  background-color: var(--white);
 
-  height: 41px;
+  height: 40px;
   max-width: 100%;
 
-  border-radius: 5px;
+  border-radius: 3px;
 
   padding-left: 8px;
+  padding-right: 8px;
 
   position: relative;
 
-  border: 1px solid var(--pink);
+  border: 1px solid var(--heavy-gray);
 
   margin-top: 8px;
 
@@ -26,11 +27,11 @@ export const Container = styled.div<IContainer>`
   > label {
     position: absolute;
 
-    left: 8px;
+    left: 0;
 
     background-color: inherit;
 
-    padding: 0 6px;
+    padding: 0 10px;
 
     border-radius: 4px 4px 0 0;
 
@@ -41,6 +42,7 @@ export const Container = styled.div<IContainer>`
             transform: translateY(0);
             font-size: 12px;
             color: var(--black);
+            left: 4px;
           `
         : css`
             top: 50%;
@@ -49,7 +51,7 @@ export const Container = styled.div<IContainer>`
             color: var(--light-gray);
           `}
 
-    transition: top .2s, transform .2s, font-size .2s, color .2s;
+    transition: all .2s;
   }
 
   > input {

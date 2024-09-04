@@ -80,6 +80,8 @@ export const LoginModal = () => {
           <button type="submit">Entrar</button>
         </Form>
 
+        <button onClick={toggleLoginModal}>Cancelar</button>
+
         <img src={logo} alt="Logo" />
       </Container>
     </>
