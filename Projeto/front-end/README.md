@@ -33,16 +33,3 @@ que cada uma pode ter:
 | --------- | --------------------------------------------------------------------- | ----------- |
 | `API_URL` | URL da API que faz parte do projeto que compõe o sistema da Pesadelo. | ✅           |
 
-# Rodando o projeto localmente
-
-Após seguir todos os passos acima falta apenas rodar o projeto localmente. Para
-isso assugere-se dos seguintes itens:
-
-- ✅ Versão do NodeJS compatível com a *20.14.0*;
-- ✅ Variáveis de ambiente configuradas corretamemte;
-- ✅ Pacotes instalados.
-
-Com tudo isso feito pode-se prosseguir e rodar o seguinte comando na raiz do
-projeto:
-
-`yarn dev`

@@ -28,6 +28,45 @@
 https://mds-arena-pesadelo.vercel.app/home
 
 
+# Rodando o projeto localmente front-end
+
+Após seguir todos os passos acima falta apenas rodar o projeto localmente. Para
+isso assugere-se dos seguintes itens:
+
+- ✅ Versão do NodeJS compatível com a *20.14.0*;
+- ✅ Variáveis de ambiente configuradas corretamemte;
+- ✅ Pacotes instalados.
+
+Com tudo isso feito pode-se prosseguir e rodar o seguinte comando na raiz do
+projeto:
+
+`yarn dev`
+
+
+# Rodando o projeto localmente back-end
+
+Após seguir todos os passos acima falta apenas rodar o projeto localmente. Para
+isso assugere-se dos seguintes itens:
+
+- ✅ Versão do NodeJS compatível com a *20.14.0*;
+- ✅ Variáveis de ambiente configuradas corretamemte;
+- ✅ Pacotes instalados;
+- ✅ Migrações do banco de dados rodaram com sucesso.
+
+Com tudo isso feito pode-se prosseguir e rodar o seguinte comando na raiz do
+projeto:
+
+`yarn start:dev`
+
+O comando acima fará com que a API comece a rodar na porta especificada.
+
+Você saberá que tudo está rodando corretamente se ver as seguintes mensagens
+no terminal após inserir o comando acima:
+
+🚀 Server stared on port 3333
+💾 Database connected successfully!
+
+
 ## Desenvolvedores
 
 <center>
