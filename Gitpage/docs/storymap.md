@@ -26,7 +26,7 @@
 
 <p style="text-indent: 50px;text-align: justify;"> O processo de design envolveu testes de usabilidade para garantir uma experiência do usuário agradável. O protótipo serve como um guia para o desenvolvimento do site final, comunicando o design a desenvolvedores, stakeholders e usuários finais. </p>
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FM4juRgmppbUw2fJmnn1nIa%2FPrototipo-Arena-Pesadelo%3Ftype%3Ddesign%26node-id%3D0%253A1%26mode%3Ddesign%26t%3DLvvuxaD2GzaIiP76-1" allowfullscreen></iframe>
----
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2F1t46D0bHaCuFj17aWcHIXc%2FProject-Predo%3Fnode-id%3D128-7%26t%3DGgnDGx6WxqQ2L0DG-0" allowfullscreen></iframe>
+
 
 
