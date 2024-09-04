@@ -16,11 +16,11 @@
 
 **Habilidades necessárias/preferenciais:** Conhecimento em HTML; Conhecimento em CSS; Github; Conhecimento em Javascript, Node.js e react.js.
 
-**Mentores:** Professora Carla Rocha - Matéria de MDS.
+**Mentores:** Professora Carla Rocha - Matéria de Métodos de Desenvolvimento de Software.
 
 **Tamanho do projeto:**  Médio/Grande.
 
-**Dificuldade:** Média.
+**Dificuldade:** Grande.
 
 O projeto é software livre e está sob a licença [MIT](./LICENSE).
 

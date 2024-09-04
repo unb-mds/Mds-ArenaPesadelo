@@ -4,17 +4,15 @@
 
 |Data|Versão|Descrição|Autores|
 |--|--|--|--|
-|04/04/2024|0.1|Adicionando roadmap|Miguel Arthur|
-|07/04/2024|0.2|Adicionando sprints|Miguel Arthur|
+|04/09/2024|0.2|Adicionando roadmap|Miguel Arthur|
+|04/09/2024|0.2|Adicionando sprints|Miguel Arthur|
 |25/04/2024|0.3|Adicionando iFrame trello|Adrielly Rodrigues|
 
 <p style="text-indent: 50px;text-align: justify;">Essa seção está dividida em sprints, cada uma com duração de uma semana, que detalham o trabalho realizado por nós, além dos tutoriais e materiais que orientaram nosso estudo.</p>
 
 ## ROADMAP - ARENA PESADELO
 
-
-
-<img src="/home/zlimaz/Documentos/Mds-ArenaPesadelo/Gitpage/Imagens_gitpage/ROADMAP.jpg" width="800">
+### [Imagem do RoadMap do Projeto](https://www.canva.com/design/DAGPxAtzk7I/d_V5nPUMlwOCTOVYan4pjQ/view)
 
 ## Quadro de Sprints
 <p style="text-indent: 50px;text-align: justify;"> O Quadro de Sprints contém informações de cada sprint de cada lançamento, onde cada sprint representa um painel neste quadro, e os cartões dentro do painel são as atividades que serão realizadas. </p>
