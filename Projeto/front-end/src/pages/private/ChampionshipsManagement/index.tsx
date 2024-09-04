@@ -92,14 +92,15 @@ export const ChampionshipManagement = () => {
         `/championships/${option.value}`
       );
 
-      if (data.date) setValue('date', data.date);
-      if (data.from) setValue('from', data.from);
-      if (data.name) setValue('name', data.name);
-      if (data.modality) setValue('modality', Number(data.modality));
-      if (data.location) setValue('location', data.location);
-      if (data.participants) setValue('participants', Number(data.participants));
-      if (data.to) setValue('to', data.to);
-      if (data.description) setValue('description', data.description);
+      if (data.date) setValue("date", data.date);
+      if (data.from) setValue("from", data.from);
+      if (data.name) setValue("name", data.name);
+      if (data.modality) setValue("modality", Number(data.modality));
+      if (data.location) setValue("location", data.location);
+      if (data.participants)
+        setValue("participants", Number(data.participants));
+      if (data.to) setValue("to", data.to);
+      if (data.description) setValue("description", data.description);
 
       setChampionship(data);
     },
@@ -110,8 +111,8 @@ export const ChampionshipManagement = () => {
     return [
       { label: "2", value: 2 },
       { label: "4", value: 4 },
-      { label: "6", value: 6 },
       { label: "8", value: 8 },
+      { label: "16", value: 16 },
     ];
   }, []);
 
@@ -119,8 +120,8 @@ export const ChampionshipManagement = () => {
     async (data: IForm) => {
       try {
         if (!championship?.id) {
-          toast('Selecione um campeonato para edição!', {
-            type: 'info',
+          toast("Selecione um campeonato para edição!", {
+            type: "info",
           });
           return;
         }
@@ -147,7 +148,7 @@ export const ChampionshipManagement = () => {
 
         reset();
         toast("Campeonato criado com sucesso!", {
-          type: 'success',
+          type: "success",
         });
 
         setChampionship(null);
@@ -160,6 +161,29 @@ export const ChampionshipManagement = () => {
       }
     },
     [file, reset, championship]
+  );
+
+  const handleDeleteChampionship = useCallback(
+    async () => {
+      if (!championship) return;
+
+      const confirmed = confirm(
+        `Você quer mesmo DELETAR o campeonato ${championship.name}?`
+      );
+
+      if (!confirmed) return;
+
+      await api.delete(`/championships/${championship.id}`);
+
+      reset();
+      toast("Campeonato DELETADO com sucesso!", {
+        type: "success",
+      });
+
+      setChampionship(null);
+      setChampionships(oldState => oldState.filter(item => item.value !== championship.id))
+    },
+    [reset, championship]
   );
 
   return (
@@ -188,7 +212,10 @@ export const ChampionshipManagement = () => {
 
           {championship && (
             <div className="icons">
-              <button type="button">
+              <button
+                type="button"
+                onClick={handleDeleteChampionship}
+              >
                 <FiTrash2 size={24} color="#DA1F4F" strokeWidth={2} />
               </button>
             </div>
@@ -218,7 +245,7 @@ export const ChampionshipManagement = () => {
                     name={name}
                     options={modalities}
                     error={error?.message}
-                    value={modalities.find(item => item.value === value)}
+                    value={modalities.find((item) => item.value === value)}
                     onChange={(option) => {
                       onChange({ target: { value: option?.value || "" } });
                     }}
@@ -272,7 +299,9 @@ export const ChampionshipManagement = () => {
                 }) => (
                   <Select
                     label="Quantidade de times"
-                    value={participantsOptions.find(item => item.value === value)}
+                    value={participantsOptions.find(
+                      (item) => item.value === value
+                    )}
                     name={name}
                     options={participantsOptions}
                     onChange={(option) => {

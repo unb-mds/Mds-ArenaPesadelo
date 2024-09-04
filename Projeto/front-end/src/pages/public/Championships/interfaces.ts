@@ -14,4 +14,5 @@ export interface IChampionship {
   photo: string;
   photo_url: string;
   updated_at: string;
+  available_vacancies: number;
 }

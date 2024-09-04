@@ -9,6 +9,7 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { MdBrokenImage } from 'react-icons/md';
 import { RegistrationModal } from "../../../components/Modals/Registration";
+import { toast } from "react-toastify";
 
 export const Championships = () => {
   const [championships, setChampionships] = useState<IChampionship[]>([]);
@@ -25,9 +26,16 @@ export const Championships = () => {
     loadChampionships();
   }, []);
 
-  const handleChampionshipRegistrationClick = useCallback(async (id: string) => {
+  const handleChampionshipRegistrationClick = useCallback(async (championship: IChampionship) => {
+    if (!championship.available_vacancies) {
+      toast('Não há mais vagas para este campeonato!', {
+        type: 'info',
+      });
+      return;
+    }
+
     setShowModal(true);
-    setChampionship(id);
+    setChampionship(championship.id);
   }, []);
 
   return (
@@ -83,14 +91,16 @@ export const Championships = () => {
 
                   <ChampionshipParticipants>
                     <span>Vagas restantes:</span>
-                    <span>{championship.participants}</span>
+                    <span>{championship.available_vacancies}</span>
                   </ChampionshipParticipants>
 
                   {/* <p>{championship.description}</p> */}
                 </main>
 
                 <footer>
-                  <Button onClick={() => handleChampionshipRegistrationClick(championship.id)}>
+                  <Button
+                    onClick={() => handleChampionshipRegistrationClick(championship)}
+                  >
                     INSCREVA - SE
                   </Button>
                 </footer>
