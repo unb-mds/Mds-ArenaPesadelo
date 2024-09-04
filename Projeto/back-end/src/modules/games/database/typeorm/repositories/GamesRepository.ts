@@ -138,14 +138,14 @@ export default class GamesRepository implements IGamesRepository {
   }
 
   public async getNextGame(game: Game): Promise<Game | undefined> {
-    const { phase, championship_id } = game;
-    const cardinal = game.cardinal % 2 === 0 ? game.cardinal - 1 : game.cardinal;
+    const { phase, championship_id, cardinal } = game;
+    const nextCardinal = (cardinal % 2 !== 0 ? cardinal + 1 : cardinal) / 2;
 
     const nextGame = await this.ormRepository.findOne({
       where: {
         championship_id,
         phase: phase + 1,
-        cardinal,
+        cardinal: nextCardinal,
       }
     });
 

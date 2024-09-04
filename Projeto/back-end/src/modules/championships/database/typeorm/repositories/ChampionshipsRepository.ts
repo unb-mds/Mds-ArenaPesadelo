@@ -1,6 +1,6 @@
 import { Service } from "typedi";
 import IChampionshipsRepository from "../../../repositories/IChampionshipsRepository";
-import { Repository } from "typeorm";
+import { MoreThan, Repository } from "typeorm";
 import Championship from "../entities/Championship";
 import { connection } from "../../../../../database/connection";
 import { IChampionshipDTO } from "../../../dtos/IChampionshipDTO";
@@ -55,10 +55,10 @@ export default class ChampionshipsRepository
   public async listUpcoming(): Promise<Championship[]> {
     const now = getServerDate().getTime();
 
-    return this.ormRepository
-      .createQueryBuilder("championships")
-      .where("date_start > :now", { now })
-      .getMany();
+    return this.ormRepository.find({
+      where: { date_start: MoreThan(now) },
+      relations: ['registrations'],
+    });
   }
 
   public async list(relations: string[] = []): Promise<Championship[]> {

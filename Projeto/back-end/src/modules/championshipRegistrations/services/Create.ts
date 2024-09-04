@@ -6,6 +6,7 @@ import { IChampionshipRegistrationsDTO } from "../dtos/IChampionshipRegistration
 import ITeamsRepository from "../../teams/repositories/ITeamsRepository";
 import ApiError from "../../../infra/errors/ApiError";
 import IGamesRepository from "../../games/repositories/IGamesRepository";
+import shuffleArray from "../../../shared/utils/shuffleArray";
 
 interface IRequest extends IChampionshipRegistrationsDTO {
   userId: string;
@@ -60,19 +61,28 @@ export default class CreateChampionshipRegistrationsService {
       throw new ApiError('Seu time já foi inscrito nesse campeonato!');
     }
 
-    const registration = await this.championshipRegistrationRepository.create(data);
     const registrations = await this.championshipRegistrationRepository.listByChampionshipId(
       championship.id,
     );
 
     if (registrations.length === championship.participants) {
+      throw new ApiError('As vagas para este campeonato se esgotaram!');
+    }
+
+    const registration = await this.championshipRegistrationRepository.create(data);
+
+    if ((registrations.length + 1) === championship.participants) {
       const games = championship.participants / 2;
+
+      const updatedRegistrations = await this.championshipRegistrationRepository
+        .listByChampionshipId(championship.id);
+      const randomizedRegistrations = shuffleArray(updatedRegistrations);
 
       let phase = 1;
 
       for (let i = games; i >= 1; i /= 2) {
         for (let j = 0; j < i; j++) {
-          const [home, visitor] = registrations.splice(0, 2);
+          const [home, visitor] = randomizedRegistrations.splice(0, 2);
 
           await this.gamesRepository.create({
             cardinal: j + 1,

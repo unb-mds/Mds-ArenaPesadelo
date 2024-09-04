@@ -1,6 +1,7 @@
 import { Expose } from "class-transformer";
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import modalities from "../../../../../constants/modalities";
+import ChampionshipRegistration from "../../../../championshipRegistrations/database/typeorm/entities/ChampionshipRegistration";
 
 @Entity('championships')
 export default class Championship {
@@ -37,11 +38,23 @@ export default class Championship {
   @Column('int', { nullable: false })
   modality: number;
 
+  @OneToMany(() => ChampionshipRegistration, registration => registration.championship)
+  registrations: ChampionshipRegistration[];
+
   @Expose({ name: 'modality_name' })
   getModalityName(): string {
     const modality = modalities.find(item => item.value === this.modality);
 
     return modality!.label;
+  }
+
+  @Expose({ name: 'available_vacancies' })
+  getAvailableVacancies(): number {
+    if (!this.registrations?.length) return this.participants;
+
+    const { registrations, participants } = this;
+
+    return participants - registrations.length;
   }
 
   @Expose({ name: 'photo_url' })
