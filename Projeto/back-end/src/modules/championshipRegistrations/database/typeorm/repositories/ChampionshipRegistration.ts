@@ -37,7 +37,7 @@ export default class ChampionshipRegistrationRepository
       })) || undefined
     );
   }
-  
+
   public async listByChampionshipId(championshipId: string): Promise<ChampionshipRegistration[]> {
     return this.ormRepository.find({
       where: { championship_id: championshipId },

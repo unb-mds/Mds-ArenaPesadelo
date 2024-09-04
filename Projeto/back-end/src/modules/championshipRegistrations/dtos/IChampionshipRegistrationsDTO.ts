@@ -1,4 +1,4 @@
 export interface IChampionshipRegistrationsDTO {
-    teamId: string;
-    championshipId: string;
-  }
+  teamId: string;
+  championshipId: string;
+}

@@ -1,3 +1,5 @@
+process.env.TZ = 'UTC';
+
 import 'reflect-metadata';
 import 'express-async-errors';
 

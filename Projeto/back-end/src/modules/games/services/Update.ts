@@ -38,16 +38,18 @@ export default class UpdateGamesService {
       throw new ApiError('Não foi possível atualizar esse registro!');
     }
 
-    const homeScore = data.homeScore || game.home_score;
-    const visitorScore = data.visitorScore || game.visitor_score;
+    const homeScore = typeof data.homeScore === 'undefined' ? game.home_score : data.homeScore;
+    const visitorScore = typeof data.visitorScore === 'undefined' ? game.visitor_score : data.visitorScore;
 
     const draw = homeScore === visitorScore;
     const nextGame = await this.gamesRepository.getNextGame(game);
 
+    const oddGame = game.cardinal % 2 !== 0;
+    const winnerPlace = oddGame ? 'home' : 'visitor';
+
     if (draw && nextGame) {
       await this.gamesRepository.update(nextGame, {
-        home: null,
-        visitor: null,
+        [winnerPlace]: null,
       });
     }
 
@@ -59,13 +61,13 @@ export default class UpdateGamesService {
     }
 
     const winner = homeScore > visitorScore ? game.home : game.visitor;
-    const oddGame = game.cardinal % 2 !== 0;
-    const winnerPlace = oddGame ? 'home' : 'visitor';
 
     await this.gamesRepository.update(nextGame, {
       [winnerPlace]: winner,
     });
-    const updatedGame = await this.gamesRepository.update(game, data);
+    await this.gamesRepository.update(game, data);
+
+    const updatedGame = (await this.gamesRepository.findById(game.id)) as Game;
 
     return updatedGame;
   }

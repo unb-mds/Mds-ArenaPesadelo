@@ -113,6 +113,7 @@ export default class GamesRepository implements IGamesRepository {
     return this.ormRepository.find({
       where: { phase, championship_id: championshipId },
       relations: ["host", "visiting"],
+      order: { phase: 'ASC', cardinal: 'ASC' }
     });
   }
 
@@ -130,7 +131,10 @@ export default class GamesRepository implements IGamesRepository {
   }
 
   public async findById(id: string): Promise<Game | undefined> {
-    return (await this.ormRepository.findOne({ where: { id } })) || undefined;
+    return (await this.ormRepository.findOne({
+      where: { id },
+      relations: ["host", "visiting"]
+    })) || undefined;
   }
 
   public async getNextGame(game: Game): Promise<Game | undefined> {
